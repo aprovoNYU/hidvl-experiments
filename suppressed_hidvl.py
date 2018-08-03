@@ -16,13 +16,14 @@ bsn_list_hidvlpublished_suppressed = []
 count_suppressed=0
 count_published=0
 count_published_aleph=0
+count_hidvlpublished_suppressed = 0
 
 
 with open("hidvl_recently_published.csv", "r") as hidvl_recently_published:
 	hidvl_reader = csv.reader(hidvl_recently_published)
 	next(hidvl_reader)
 	for row in hidvl_reader:
-		aleph_bsn_published = row[1].replace("\n", "")
+		aleph_bsn_published = row[3].replace("\n", "")
 		bsn_list_published.append(aleph_bsn_published)
 		count_published+=1
 print(set(bsn_list_published))
@@ -67,6 +68,9 @@ for bsn in bsn_list_published:
 		if bsn not in bsn_list_published_aleph:
 			print(bsn)
 			bsn_list_hidvlpublished_suppressed.append(bsn)
+			count_hidvlpublished_suppressed+=1
+print(bsn_list_hidvlpublished_suppressed)
+print("count of suppressed records published in hidvl but not in aleph: ",count_hidvlpublished_suppressed)
 
 # lists = []
 # lists.append(bsn_list_suppressed)
@@ -81,7 +85,7 @@ for bsn in bsn_list_published:
 #print(published_suppressed)
 #print(len(bsn_list_published_suppressed))
 
-with open ("suppressed__needAleph_handles_hidvl_%s.csv" %filetime, 'w') as file:
+with open ("suppressed_needAleph_handles_hidvl_%s.csv" %filetime, 'w') as file:
 	writer = csv.writer(file)
 	writer.writerow(['aleph_bsn_number'])
 	for x in bsn_list_hidvlpublished_suppressed:
