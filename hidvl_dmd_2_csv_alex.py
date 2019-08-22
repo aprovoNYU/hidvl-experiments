@@ -1,15 +1,42 @@
-#based on https://www.vipinajayakumar.com/parsing-text-with-python/
 
 import re
 import csv
 from datetime import datetime, date, time
+
+pattern = input('Enter record pattern number:')
 
 #set up current date and time for filename
 filetime = datetime.now()
 filetime = filetime.strftime("%Y-%m-%d_%I-%M_%p")
 
 #create a dictionary of regular expressions that select the value of a given field. Currently using named groups, although this isn't called in the script.
-rx_dict = {
+#these regular expression dictionaries are based partially on https://www.vipinajayakumar.com/parsing-text-with-python/
+
+#need to add 544, 654, 555 deal with weird ordering of fields
+rx_dict_1 = {
+    'HI_number' : re.compile(r'Subject: HI Episode Submission (HI[0-9]{4}.[0-9]{3}_[0-9]{2})\n'),
+    #submission could read as follows or could have different language
+    'Correction_note' : re.compile(r'Supplemental or Correction description: (.*?(?=Subject: HI Collection Survey Form Submission))', flags=re.S),
+    'Format' : re.compile(r'534 .{2} \$p(.*?(?=440))', flags=re.S),
+    'Series_Title' : re.compile(r'440 .{2} \$a(.*?(?=711))', flags=re.S),
+    'Meeting_Information' : re.compile(r'711 .{2} \$a(.*?(?=Episode))', flags=re.S),
+    'Run_time' : re.compile(r'Run time for episode [0-9]{2}: (.*?(?=[0-9]{3}))', flags=re.S),
+    'Title' : re.compile(r'245 .{2} \$a(.*?(?=[0-9]{3}))', flags=re.S),
+    'Alternate_Titles' : re.compile(r'246 .{2} \$a(.*?(?=[0-9]{3}))', flags=re.S),
+    'Production_Information' : re.compile(r'260 .{2}(.*?(?=5.{2}))', flags=re.S),
+    'Main_Production_Credits' : re.compile(r'508 .{2} \$a(.*?(?=[0-9]{3}))', flags=re.S),
+    'Participants' : re.compile(r'511 .{2} \$a(.*?(?=[0-9]{3}))', flags=re.S),
+    'Summary' : re.compile(r'520 .{2} \$a(.*?(?=5|6[0-9]{2}))', flags=re.S),
+    'Language' : re.compile(r'546 .{2} \$a(.*?(?=[0-9]{3}))', flags=re.S),
+    'Subjects' : re.compile(r'653 .{2} \$a(.*?(?=[0-9]{3}))', flags=re.S),
+    'Worktypes' : re.compile(r'655 .{2} \$a(.*?(?=[0-9]{3}))', flags=re.S),
+    'Location' : re.compile(r'518.*?\$[a-z](.*?(?=[0-9]{3}))', flags=re.S),
+    'Rights_Holder': re.compile(r'RIGHTS HOLDER INFORMATION:(.*)', flags=re.S)
+
+}
+
+
+rx_dict_2 = {
     'HI_number' : re.compile(r'Subject: HI Episode Submission (?P<HI_number>HI[0-9]{4}.[0-9]{3}_[0-9]{2})\n'),
     'Correction_note' : re.compile(r'Supplemental or Correction description: (?P<Correction_note>.*?(?=HI Episode Submission))', flags=re.S),
     'Format' : re.compile(r'Format \(534\): Media Source Original: (?P<Format>.*)'),
@@ -41,39 +68,44 @@ rec_delim_re = re.compile(r'DELIMITER \d* DELIMITERDELIMITERDELIMITERDELIMITERDE
 #create a list for the records
 records_list = []
 
+
 #open the DMD text file
-with open('hidvl_dmds_20180919.txt','r') as file:
+with open('2019-08-06-hidvl-dmd-dump_pattern1.txt','r') as file:
     #read the entire file
     file_contents = file.read()
-    print(file_contents)
+   # print(file_contents)
     #split each record into its own chunk of text
     records = rec_delim_re.split(file_contents)
-    print(records)
+   # print(records)
+    print(len(records))
     #loop through the records
     for record in records:
-        print(record)
+        #print(record)
 
         #create a dictionary which will contain each record's field and value
         record_dict = {}
         #while looping through each record, loop through the regexes above
-        for key, rx in rx_dict.items():
+        # based partially on https://www.vipinajayakumar.com/parsing-text-with-python/
+        for key, rx in rx_dict_1.items():
             #within each record / text blob, search for each of the regexes
             match = rx.search(record)
             if match:
-                print(key,match.group(1))
+                #print(key,match.group(1))
                 #add each field/value to the dictionary for this record
                 record_dict[key] = match.group(1).strip().replace("    ","").replace("\n","|")
             else:
                 pass
 
-        print(record_dict)
+        #print(record_dict)
         #append the entire record dictionary to the list of records
         records_list.append(record_dict)
     print(records_list)
-
+    #print(len(records_list))
+#
 #output as a CSV
-with open ('hidvl_dmd_parsed_%s.csv' %filetime, 'w') as output_file:
-    fieldnames = ['HI_number', 'Correction_note', 'Format', 'Source_Tape_Generation', 'Run_Time', 'Series_Title', 'Meeting_Information', 'Title', 'Alternate_Titles', 'Date_of_Production', 'Location_Venue', 'Language', 'Main_Production_Credits', 'Additional_Production_Credits', 'Participants', 'Performers', 'Worktypes', 'Performance_Genres', 'Summary', 'Subjects', 'Rights_Holder', 'Broadcast_Note', 'Note_to_Cataloger']
+with open ('hidvl_dmd_parsed_%s.csv' %("pattern"+pattern + "_" + filetime), 'w') as output_file:
+    fieldnames = [*rx_dict_1.keys()]
+        #['HI_number', 'Correction_note', 'Format', 'Source_Tape_Generation', 'Run_Time', 'Series_Title', 'Meeting_Information', 'Title', 'Alternate_Titles', 'Date_of_Production', 'Location_Venue', 'Language', 'Main_Production_Credits', 'Additional_Production_Credits', 'Participants', 'Performers', 'Worktypes', 'Performance_Genres', 'Summary', 'Subjects', 'Rights_Holder', 'Broadcast_Note', 'Note_to_Cataloger']
     writer = csv.DictWriter(output_file, fieldnames=fieldnames)
     writer.writeheader()
     #loop through the list of records and write each dictionary as a row in the CSV
