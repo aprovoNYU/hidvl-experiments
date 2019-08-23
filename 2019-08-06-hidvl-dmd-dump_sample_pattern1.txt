@@ -1,0 +1,124 @@
+DELIMITER 1 DELIMITERDELIMITERDELIMITERDELIMITERDELIMITER
+
+Subject: HI Episode Submission HI2003.001_01
+
+HI Episode Submission:
+
+-----------------------------------------------------------
+
+Submission timestamp: 2007-11-05
+Submission type: final
+Supplemental or Correction description: Corrections made to fields 'Tape _ of _', 534, 440, 711, 245, 246, 260, 300, 500, 506, 508, 511, 520, 653, 655, 845 and 'Rights Holder Information'.
+
+Subject: HI Collection Survey Form Submission HI2003.001_01	
+
+HI Collection Survey Form Submission: 
+
+-----------------------------------------------------------
+
+035 bb $a HI2003.001_01 
+
+Tape 1 of 1
+534 bb $pMedia source original:$e1 videocassette (Mini DV) : digital sd., col.; dimensions: 1/4 in.
+440 b0 $a Spectacles of Religiosities 
+711 2b $a Hemispheric Institute Annual Seminar/Encuentro$n(4th :$d2003 :$cNew York University) 
+Episode part 1 of 1 episode parts for this sub-event 
+Run time for episode 01: 60 min. 
+245 00 $a Jean Franco Keynote Address: 'The Second Coming: Religion as Entertainment' / $c Jean Franco, creator ; Hemispheric Institute, producer. 
+246 0b $a The Second Coming: Religion as Entertainment 
+260 bb $a New York University, New York, United States : $c 2003 July. 
+508 bb $a NYU TV and Media, videographer.
+511 1b $a Jean Franco, keynote speaker.
+520 bb $a Video documentation of Jean Franco’s keynote address, ‘The Second Coming: Religion as Entertainment,’ presented as a part of the 4th Encuentro of the Hemispheric Institute of Performance and Politics, celebrated in July of 2003 in New York City, United States under the title ‘Spectacles of Religiosities.’ Everywhere secularism is in retreat. Not only are fundamentalists on the rise but also many competing brands of spirituality are now widely disseminated through media, film, best selling fiction and television. While most orthodox religions have always used ritual and performance, telecommunications and televisual effects are transforming religion into religiosity. ‘The return of religion’ has become an issue. Jean Franco is currently Professor Emeritus at Columbia University. She is the winner of the PEN 1996 award for lifetime contribution to the dissemination of Latin American literature in English and has been recognized by the Chilean and Venezuelan governments for advanced scholarship on Latin American literature in the United States.
+546 bb $a English 
+653 bb $a Franco, Jean
+653 bb $a Religion and Telecommunications
+653 bb $a Return of Religion
+653 bb $a Hemispheric Institute
+653 bb $a Spectacles of Religiosities
+655 b0 $a Keynote address
+RIGHTS HOLDER INFORMATION: Hemispheric Institute of Performance and Politics
+DELIMITER 2 DELIMITERDELIMITERDELIMITERDELIMITERDELIMITER
+
+Subject: HI Episode Submission HI2003.002_01
+
+HI Episode Submission:
+
+-----------------------------------------------------------
+
+Submission timestamp: 2007-11-05
+Submission type: final
+Supplemental or Correction description: Corrections made to fields 'Tape _ of _', 534, 440, 711, 245, 246, 260, 300, 500, 506, 508, 511, 520, 653, 655, 845 and 'Rights Holder Information'.
+
+Subject: HI Collection Survey Form Submission HI2003.002_1	
+
+HI Collection Survey Form Submission: 
+
+-----------------------------------------------------------
+
+035 bb $a HI2003.002_01 
+
+Tape 1 of 1
+534 bb $pMedia source original:$e1 videocassette (Mini DV) : digital sd., col.;
+  dimensions: 1/4 in.
+440 b0 $a Spectacles of Religiosities 
+711 2b $a Hemispheric Institute Annual Seminar/Encuentro$n(4th :$d2003 :$cNew York University) 
+Episode part 1 of 1 episode parts for this sub-event 
+Run time for episode 01: 60 min. 
+245 00 $a Gustavo Buntix Keynote Address: 'Sarita Colonia: De ícono religioso a héroe cultural' / $c Gustavo Buntinx, creator ; Hemispheric Institute, producer. 
+246 0b $a Sarita Colonia: De ícono religioso a héroe cultural 
+246 0b $a Dearest Sarah: Religious Icon and Cultural Hero
+260 bb $a New York University, New York, United States : $c cJuly 2003. 
+508 bb $a Barbara Kirshenblatt-Gimblett, introduction by ; NYU TV and Media, videographer. 
+511 1b $a Gustavo Buntix, keynote speaker.
+520 bb $a Video documentation of Gustavo Buntinx’s keynote address, ‘Sarita Colonia: De icono religioso a héroe cultural’, presented as part of the 4th Encuentro of the Hemispheric Institute of Performance and Politics, celebrated in July of 2003 in New York City, United States under the title ‘Spectacles of Religiosities’. Introduction by Barbara Kirshenblatt-Gimblett. Gustavo Buntix is an art historian, critic and independent curator, and director of the Cultural Center of the Universidad Nacional Mayor de San Marcos (Peru). A graduate of Harvard University, where he studied Literature and History, he completed postgraduate studies at the Universidad de Buenos Aires. He has been professor in Art Criticism History, Latin American Art, and 20th. Century Art at the Universidad de Buenos Aires and the Universidade do São Paulo. In Lima he directed the Italian Art Museum and the Art and History Universidad de San Marcos Museum. He has been curator of more than a dozen exhibits in Peru, Uruguay and México. His essays are published in art criticism anthologies released in Europe and the US.
+546 bb $a Spanish 
+653 bb $a Buntix, Gustavo
+653 bb $a Colonia, Sarita. 1914-1940 Cult Peru
+653 bb $a Identity politics 
+653 bb $a Hemispheric Institute
+655 b0 $a Spectacles of Religiosities
+655 b0 $a Keynote address
+RIGHTS HOLDER INFORMATION: Hemispheric Institute of Performance and Politics
+DELIMITER 3 DELIMITERDELIMITERDELIMITERDELIMITERDELIMITER
+
+Subject: HI Episode Submission HI2003.003_01
+
+HI Episode Submission:
+
+-----------------------------------------------------------
+
+Submission timestamp: 2007-11-05
+Submission type: final
+Supplemental or Correction description: Corrections made to fields 'Tape _ of _', 534, 440, 711, 245, 246, 260, 300, 500, 506, 508, 511, 520, 653, 655, 845 and 'Rights Holder Information'.
+
+Subject: HI Collection Survey Form Submission HI2003.003_01	
+
+HI Collection Survey Form Submission: 
+
+-----------------------------------------------------------
+
+035 bb $a HI2003.003_01 
+
+Tape 2 of 2
+534 bb $pMedia source original:$e1 videocassette (Mini DV) : digital sd., col.; dimensions: 1/4 in.
+440 b0 $a Spectacles of Religiosities 
+711 2b $a Hemispheric Institute Annual Seminar/Encuentro$n(4th :$d2003 :$cNew York University) 
+Episode part 1 of 1 episode parts for this sub-event 
+Run time for episode 01: 60 min. 
+245 00 $a Gustavo Buntix Keynote Address: 'Sarita Colonia: De ícono religioso a héroe cultural' / $c Gustavo Buntinx, creator ;
+  Hemispheric Institute, producer. 
+246 0b $a Sarita Colonia: De ícono religioso a héroe cultural 
+246 0b $a Dearest Sarah: Religious Icon and Cultural Hero
+260 bb $a New York University, New York, United States : $c cJuly 2003. 
+508 bb $a Barbara Kirshenblatt-Gimblett, introduction by ; NYU TV and Media, videographer. 
+511 1b $a Gustavo Buntix, keynote speaker.
+520 bb $a Video documentation of Gustavo Buntinx’s keynote address, ‘Sarita Colonia: De icono religioso a héroe cultural’, presented as part of the 4th Encuentro of the Hemispheric Institute of Performance and Politics, celebrated in July of 2003 in New York City, United States under the title ‘Spectacles of Religiosities’. Introduction by Barbara Kirshenblatt-Gimblett. Gustavo Buntix is an art historian, critic and independent curator, and director of the Cultural Center of the Universidad Nacional Mayor de San Marcos (Peru). A graduate of Harvard University, where he studied Literature and History, he completed postgraduate studies at the Universidad de Buenos Aires. He has been professor in Art Criticism History, Latin American Art, and 20th. Century Art at the Universidad de Buenos Aires and the Universidade do São Paulo. In Lima he directed the Italian Art Museum and the Art and History Universidad de San Marcos Museum. He has been curator of more than a dozen exhibits in Peru, Uruguay and México. His essays are published in art criticism anthologies released in Europe and the US.
+546 bb $a Spanish 
+653 bb $a Buntix, Gustavo
+653 bb $a Colonia, Sarita. 1914-1940 Cult Peru
+653 bb $a Identity politics 
+653 bb $a Hemispheric Institute
+655 b0 $a Spectacles of Religiosities
+655 b0 $a Keynote address
+RIGHTS HOLDER INFORMATION: Hemispheric Institute of Performance and Politics

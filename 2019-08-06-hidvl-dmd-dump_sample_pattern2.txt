@@ -1,0 +1,232 @@
+DELIMITER 1477 DELIMITERDELIMITERDELIMITERDELIMITERDELIMITER
+
+Subject: HI Episode Submission HI2009.001_01
+
+HI Episode Submission:
+
+-----------------------------------------------------------
+
+Submission timestamp: 2009-06-24
+Submission type: final
+Supplemental or Correction description: correcting due to summary/abstract truncation in initial submission.
+
+HI Episode Submission:
+
+-----------------------------------------------------------
+
+Submission timestamp: 2009-06-24
+Submission type: new
+Tape No. (024): HI2009.001_01
+Episode 1 of 1 episodes for this Tape
+Tape 1 of 1 for this Event
+
+Format (534): Media Source Original: Media source original: 1 videocassette (VHS) ; dimensions: 1/2 in. SP; film brand description: JVC T-120
+SOURCE TAPE GENERATION: original recording
+
+Run time for episode 01 (300): --> 02:03:00 (hh:mm:ss)
+
+
+-----------------------------------------------------------
+
+SERIES TITLE(S) (830):
+    Mapa Teatro : Laboratorio de Artistas collection
+
+MEETING INFORMATION (711):
+
+
+-----------------------------------------------------------
+
+TITLE (245):
+    Horacio
+
+ALTERNATE TITLE(S) (246):
+
+DATE OF PRODUCTION (260_c):
+    1993 Dec..
+
+LOCATION/VENUE OF EVENT (518):
+    Penitenciaría Central La Picota and Teatro Camarín del Carmen, Bogotá, Colombia
+
+LANGUAGE (546):
+    Spanish
+
+
+-----------------------------------------------------------
+
+MAIN PRODUCTION CREDIT(S) (508+700):
+    Mapa Teatro, Inmates of Penitenciaría Central La Picota, creator ; Mapa Teatro, producer ; Heidi Abderhalden Cortés, director.
+
+ADDITIONAL PRODUCTION CREDIT(S) (508):
+    Heiner Müller, author ; Sergio Mesa, music consultant ; Elizabeth Abderhalden, costume designer ; Daniel Demont, lighting designer.
+
+PARTICIPANT(S) (511_0):
+
+PERFORMER(S) (511_0):
+    Rolf Abderhalden, Jaime Acevedo Mesa, performer ; Nelson Acosta Izquierdo, Edilberto Delgado Quintero, performer ; César Estupiñán, Omar Gaviria Roa, performer ; Luis Hernando Jaramillo, Iván Darío Londoño, performer ; Rodrigo Nieto Tejedor, performer.
+
+
+-----------------------------------------------------------
+
+SUMMARY/ABSTRACT (520):
+
+Video documentation Mapa Teatro's production of Heiner Müller's "Horacio," created with prison inmates of La Picota central penitentiary in Bogotá.  This video includes takes form the rehearsal process with the prisoners at La Picota. Rehearsal was interrupted by authorities that peacefully requested that the group leave the stage location. Camera follows the group of actors and the director onto the street appearing to be unintentionally recording the activities with few prolonged and established shots. The camera obscurely captures this live occurrence of their removal and new found location in a prison yard policed by armed men --friendly banter between the actors and police, large vehicles move in and out of the yard, footage of chained barred fence with groups of uniformed and armed police milling about on both sides as actors board a bus that pulls up inside the yard. Camera follows the group of actors and director from the prison yard by bus to the Camarín del Carmen theater and through pre-show warm-ups, ensemble and personal interviews with the actors. The production is staged in the context of the International Human Rights Day. The play begins 3/4 through the tape. Under a large spotlight on a sparse stage with rope, wire and flowers hanging from the ceiling, the play experiments with the representation of an enclosed space. The project demonstrates the work of the actors' imagination of both mental and physical space as they enact their role through movements, gestures and the manipulation of objects. The video ends approximately 15 minutes into the performance. One of the foremost artistic companies in Colombia, Mapa Teatro (www.mapateatro.org <http://www.mapateatro.org> ) has been producing theater, performance and art installation projects since 1984. Founders and directors, Rolf and Heidi Abderhalden have created a wide ranging repertoire of theater, opera, mixed-media performance, and site-specific installation. Their work proposes richly textured visual metaphors in which they consider often complex psychological, social and political relationships. Committed to experimentation, and less interested in the actor as an ‘agent of fiction,’ they describe their project as ‘a laboratory of social imagination,’ that offers a space for presenting community issues and human concerns in media and performance. This combination of real-life situations and sites along with highly stylized aesthetic staging produces a tension between real action and (re)presentation. Mapa Teatro draws from live events captured on video such as the demolition of a neighborhood in Bogotá, ritual practice, and texts that explore the relationship of postmodern subjects, myth and metaphor. Mapa Teatro has performed by commissions, festivals and collaborative projects world-wide.
+
+
+
+
+-----------------------------------------------------------
+
+WORKTYPE(S) (655):
+    Performance
+
+PERFORMANCE GENRE(S) (655):
+    Theater
+    Experimental
+    Prison theater
+
+
+-----------------------------------------------------------
+
+SUBJECT(S) (650/653):
+    Mapa Teatro
+    Columbia
+    Theater
+    Prison theater
+    Müller, Heiner, 1929-1995
+    Human rights
+
+
+-----------------------------------------------------------
+
+RIGHTS HOLDER INFORMATION:
+    Mapa Teatro Laboratorio de Artistas
+
+
+-----------------------------------------------------------
+
+BROADCAST NOTE:
+
+
+-----------------------------------------------------------
+
+NOTES TO CATALOGER:
+    Re: Topical Subject Keywords here used
+- 
+-----------------------------------------------------------
+DELIMITER 1479 DELIMITERDELIMITERDELIMITERDELIMITERDELIMITER
+
+Subject: HI Episode Submission HI2009.002_01
+
+HI Episode Submission:
+
+-----------------------------------------------------------
+
+Submission timestamp: 2010-02-08
+Submission type: final
+Supplemental or Correction description: fixed spacing, added some commas, changed "the possibility to explore...and revitalize" to "the possibility of exploring...and revitalizing", cut "applying make-up to their faces and skin" and left simply "applying make-up in the background."
+
+HI Episode Submission:
+
+-----------------------------------------------------------
+
+Submission timestamp: 2009-06-25
+Submission type: new
+Tape No. (024): HI2009.002_01
+Episode 1 of 1 episodes for this Tape
+Tape 1 of 1 for this Event
+
+Format (534): Media Source Original: Media source original: 1 videocassette (VHS) ; dimensions: 1/2 in. SP; film brand description: Sony T-120
+SOURCE TAPE GENERATION: original recording
+
+Run time for episode 01 (300): --> 01:34:00 (hh:mm:ss)
+
+
+-----------------------------------------------------------
+
+SERIES TITLE(S) (830):
+    Mapa Teatro : Laboratorio de Artistas collection
+
+MEETING INFORMATION (711):
+
+
+-----------------------------------------------------------
+
+TITLE (245):
+    Un señor muy viejo con unas alas enormes
+
+ALTERNATE TITLE(S) (246):
+
+DATE OF PRODUCTION (260_c):
+    1996 Apr..
+
+LOCATION/VENUE OF EVENT (518):
+    V Festival Iberoamericano de Teatro, Bogotá, Colombia
+
+LANGUAGE (546):
+    Spanish and Tamil
+
+
+-----------------------------------------------------------
+
+MAIN PRODUCTION CREDIT(S) (508+700):
+    Purisai Duraisami Kannappa Thambiran Parambarai Theru Koothu Manram, Mapa Teatro, creator ; Purisai Duraisami Kannappa Thambiran Parambarai Theru Koothu Manram, Mapa Teatro, producer ; Kannappa Sambandan, Heidi Abderhalden, Rolf Abderhalden, director ; Kannappa Thambiran, music director ; Gabriel García Márquez, based on homonymous text.
+
+ADDITIONAL PRODUCTION CREDIT(S) (508):
+    Kannapa Thambiran, Nathesan Muthuswamy, dramaturgy ; Gurú Duraysamy Kannappa Tambiran, consultant ; Kannappa Thambiran, Mapa Teatro, set design, props ; Chellaiy Nadar Raveendran, lighting designer ; Kannappa Thambiran, Elizabeth Abderhalden, costume designer.
+
+PARTICIPANT(S) (511_0):
+
+PERFORMER(S) (511_0):
+    M. Abbai, S. Babu, S. Gopal, K. Kasi, performer ; E. Kuppan, M. Munuswampy, performer ; K. Radhakrishnan, V. Ragharan, performer ; K. Sambandan, M. Sigamani, M. Srinivasan, M. Srivivasan, G. Vedachala, performer.
+
+
+-----------------------------------------------------------
+
+SUMMARY/ABSTRACT (520):
+    The story of 'Un señor muy viejo con unas alas enormes' by renowned Colombian writer Gabriel García Márquez is here staged in the traditional art of Theru Koothu of Southern India as a collaboration between two companies, Purisai Duraisami Kannappa Thambiran Theru Kothu Manram of Tamil Nadu, and Mapa Teatro of Bogotá, Colombia. The story metaphorically unravels as an intercultural, theatrical and human experience: a man from another world appears one day, fallen from the sky into the backyard of Pelayo, a villager and his wife, Elisenda. The production is, for both
+companies, an experience of alterity and difference, where an experimental theater from the 'new continent' searches in the traditions of popular theater from the 'thousand-year-old continent,' looking for thriving ritual forms and a 'total language' capable of illuminating the dark paths of contemporary theater, while the ancient epic art of Theru Koothu discovers, in the work of a contemporary playwright and in the gaze of Mapa Teatro's theater, the possibility of exploring new horizons and revitalizing its own tradition. According to Mapa Teatro, the experience revealed 'a post-dramatic theatrical form approaching pre-dramatic forms and vice-versa, creating a dialogue between past and present over the space of the performance itself.' Approx. first 20 min. of this video documentation is dedicated to backstage pre-performance activities, following various actors through parts of their preparation routine in drinking coffee, applying make-up and sitting about a large room together. A brief interview with Heidi and Rolf Abderhalden of Mapa Teatro contextualizes their working relationship, while actors sit behind them applying make-up in the background. The video concludes with two fragments of the performance recorded by two different cameras.
+
+
+-----------------------------------------------------------
+
+WORKTYPE(S) (655):
+    Performance
+
+PERFORMANCE GENRE(S) (655):
+    Theater
+    Experimental
+    Intercultural
+    Theru Koothu
+    Street theater
+
+
+-----------------------------------------------------------
+
+SUBJECT(S) (650/653):
+    Mapa Teatro
+    Purisai Duraisami Kannappa Thambiran Theru Kothu Manram (Tamil Nadu)
+    Garcí́a Márquez, Gabriel, 1928- Señor muy viejo con unas alas enormes
+    Theater
+    Columbia
+    India
+    Theru Koothu
+
+
+-----------------------------------------------------------
+
+RIGHTS HOLDER INFORMATION:
+    Mapa Teatro Laboratorio de Artistas
+
+
+-----------------------------------------------------------
+
+BROADCAST NOTE:
+
+
+-----------------------------------------------------------
+
+NOTES TO CATALOGER:
+    Under Performance Genre & under Topical Subject Keywords appears 'Theru Koothu,' which is a form of rural folk theater from the south Indian state of Tamil Nadu.
+
+Under Keywords, the names 'Mapa Teatro' and 'Purisai Duraisami Kannappa Thambiran Theru Kothu Manram (Tamil Nadu)' are two theater ensembles, so they should appear, I guess, as 
+-----------------------------------------------------------
