@@ -1,22 +1,23 @@
 import re
 import csv
-from datetime import datetime, date, time
+from datetime import datetime
 
-#set up current date and time for filename
+#set up current date and time for output filename
 filetime = datetime.now()
 filetime = filetime.strftime("%Y-%m-%d_%I-%M_%p")
 def parse_records(pattern_dict,filepath):
-    # create a dictionary of regular expressions that select the value of a given field. Currently using named groups, although this isn't called in the script.
+    # create a dictionary of regular expressions that select the value of a given field. pattern 2 currently using named groups, although this isn't called in the script.
     # these regular expression dictionaries are based partially on https://www.vipinajayakumar.com/parsing-text-with-python/
 
-    # need to add 544, 654, 555 deal with weird ordering of fields
+    # TO DO: need to deal with weird ordering of fields
     regex_dicts = {
         "rx_dict_1" : {
         'HI_number': re.compile(r'Subject: HI Episode Submission (HI[0-9]{4}.[0-9]{3}_[0-9]{2})\n'),
-        # submission could read as follows or could have different language
+        # TO DO: submission could read as follows or could have different language
         'Correction_note': re.compile(r'Supplemental or Correction description: (.*?(?=Subject: HI Collection Survey Form Submission))',
             flags=re.S),
-        'Format': re.compile(r'534 .{2} \$p(.*?(?=440))', flags=re.S),
+        'Format': re.compile(r'534 .{2} \$p(.*?(?=440|SOURCE TAPE GENERATION))', flags=re.S),
+        'Source_Tape_Generation': re.compile(r'SOURCE TAPE GENERATION:(.*?(?=440))',flags=re.S),
         'Series_Title': re.compile(r'440 .{2} \$a(.*?(?=711))', flags=re.S),
         'Meeting_Information': re.compile(r'711 .{2} \$a(.*?(?=Episode))', flags=re.S),
         'Run_time': re.compile(r'Run time for episode [0-9]{2}: (.*?(?=[0-9]{3}))', flags=re.S),
@@ -74,83 +75,106 @@ def parse_records(pattern_dict,filepath):
     }
 
     }
-    # delimiter to split each record in the text file. this is based on my predecessor heidi's work.
-
+    # regex that will be used to split each record on its delimiter in the text file. this is based on my predecessor heidi's work.
     rec_delim_re = re.compile(r'DELIMITER \d* DELIMITERDELIMITERDELIMITERDELIMITERDELIMITER\n+')
 
-    #create a list for the records
+    #create a list for all of the records
     records_list = []
     # open the metadata text file
     with open(filepath,'r') as file:
         #read the entire file
         file_contents = file.read()
-       # print(file_contents)
         #split each record into its own chunk of text
         records_split = rec_delim_re.split(file_contents)
-        # note that when splitting, you end up with an empty list item ''
-        # an answer in https://stackoverflow.com/questions/16840851/python-regex-split-without-empty-string suggests using a filter
+        # note that when splitting, you end up with an empty list item '' at the beginning
+        # a filter can be used, as explained in https://stackoverflow.com/questions/16840851/python-regex-split-without-empty-string suggests using a filter
         records = list(filter(None,records_split))
 
         print(records)
-        #print(len(records))
+        #it's good to know how many records to expect in the output
+        print(len(records))
         #loop through the records
         for record in records:
+            #make a dictionary that will hold the fields and values in each record
             record_dict = {}
-            #parse_records(pattern)
-           # if record !='':
+            #specify which dictionary of regular expressions should be used, based on what pattern the user entered when running the script.
             regex_dict = regex_dicts[pattern_dict]
+            # this part is based on https://www.vipinajayakumar.com/parsing-text-with-python/
             for key, rx in regex_dict.items():
-                match = rx.search(record)
-                if match:
-                    # print(key,match.group(1))
-                    # add each field/value to the dictionary for this record
-                    record_dict[key] = match.group(1).strip().replace("    ", "").replace("\n", "|")
-                else:
-                    pass
+                # some if statements are required because each record pattern requires different processing.
+                # this is because pattern 1 records repeat the field name (for example, 653) if a field has multiple values.
+                # in contrast, pattern 2 records simply separate multi-valued elements with a newline character.
+                # At first I looked to this question: https://stackoverflow.com/questions/5060659/regexes-how-to-access-multiple-matches-of-a-group
+                # But this explanation of re.search vs re.findall I found useful: https://stackoverflow.com/questions/9000960/python-regular-expressions-re-search-vs-re-findall
+
+                # Here's what we do if the record pattern is 1:
+                if pattern_dict == "rx_dict_1":
+                    # The subjects, alternate titles, and worktypes fields are all repeatable, so we use a findall method
+                    if key == 'Subjects' or key == 'Alternate_Titles' or key == 'Worktypes':
+                        match = rx.findall(record)
+                    #for the other fields, we use a search method
+                    else:
+                        match = rx.search(record)
+                    if match:
+                        print(key, match)
+                        #if the field is one of the repeatable fields outlined above, then we want to concatenate the multiple values and separate them by a pipe character.
+                        #this is because the data will be output to a CSV and I want all of my values in the same cell, so that I can split them later in the process.
+                        if key == 'Subjects' or key == 'Alternate_Titles' or key == 'Worktypes':
+                            match_separator = '|'
+                            # at first I tried the following, but then I learned about join() from https://www.tutorialspoint.com/python/string_join.htm
+                            # for value in match:
+                            #     match_string = match_string + value.replace('\n', "") + '|'
+                            match_string = match_separator.join(match).strip().replace('\n', "") #.replace('| ',"|") I thought about cleaning up some extra spaces, but decided this would be better to do later
+                            #once things have been cleaned, we put the field and value in the dictionary
+                            record_dict[key] = match_string
+                        #if the field is not one of the repeatable ones, we do a little string cleanup and put the match in the dictionary
+                        else:
+                            record_dict[key] = match.group(1).strip().replace("    ", "").replace("\n", "")
+
+                # Here's what we do if the record pattern is 2:
+                elif pattern_dict == "rx_dict_2":
+                    #for these records, we only need to use re.search
+                    match = rx.search(record)
+                    if match:
+                        print(key,match.group(1))
+                        #if the field is a repeatable field, separate the values by replacing a newline character with a pipe
+                        if key == 'Subjects' or key == 'Performance_Genres' or key == 'Worktypes':
+                            record_dict[key] = match.group(1).strip().replace("    ", "").replace("\n", "|")
+                        #if the field is not repeatable, it might still have newline characters in it. We replace these with nothing.
+                        else:
+                            record_dict[key] = match.group(1).strip().replace("    ", "").replace("\n", "")
+            #once a single record has been searched and the fields/values added to the record dictionary, the record gets put in a list
             records_list.append(record_dict)
+    #return the list of records and the regex dictionary used. This is because when writing the CSV, we want to use the regex dictionary keys as headers.
     return [records_list,regex_dict]
 
-#output as a CSV
+#output the records as a CSV
 def output_csv(pattern,records_list,regex_dict):
     with open('hidvl_dmd_parsed_%s.csv' % (pattern + "_" + filetime), 'w') as output_file:
+        # the header of the csv is different depending on the regex dictionary used.
+        # the * syntax is used inside of a list to generate the list of fieldnames
+        # a comment explains this in https://stackoverflow.com/questions/16819222/how-to-return-dictionary-keys-as-a-list-in-python
         fieldnames = [*regex_dict.keys()]
-        # ['HI_number', 'Correction_note', 'Format', 'Source_Tape_Generation', 'Run_Time', 'Series_Title', 'Meeting_Information', 'Title', 'Alternate_Titles', 'Date_of_Production', 'Location_Venue', 'Language', 'Main_Production_Credits', 'Additional_Production_Credits', 'Participants', 'Performers', 'Worktypes', 'Performance_Genres', 'Summary', 'Subjects', 'Rights_Holder', 'Broadcast_Note', 'Note_to_Cataloger']
         writer = csv.DictWriter(output_file, fieldnames=fieldnames)
         writer.writeheader()
-        # loop through the list of records and write each dictionary as a row in the CSV
+        # loop through the list of records and write each record's dictionary as a row in the CSV
         for record in records_list:
             writer.writerow(record)
+        #that was a lot, so I like to congratulate myself at the end.
         print("yay!")
 
-pattern = input('Enter record pattern number: ')
-pattern_dict = "rx_dict_" + pattern
-filepath = input('Enter the filepath: ')
-parsed_records = parse_records(pattern_dict,filepath)
-print(parsed_records[0])
-output_csv(pattern,parsed_records[0],parsed_records[1])
-
-
-#### old attempts
-# def parse_line(record):
-#     for key, rx in rx_dict.items():
-#         match = rx.search(record)
-#         if match:
-#             return key, match
-#
-#     return None, None
-
-# with open('/Users/alexandra/Downloads/hidvl_20140327/hidvl_heidi/hidvl_sampledmd.txt', 'r') as file_object:
-
-    # match = rec_delim_re.split(file_contents)
-    # print(match)
-    # record_list = {}
-    # for rec in match:
-    #     print(rec)
-    #     parsed_rec = parse_record(rec)
-    #     print(parsed_rec)
-
-#     record = match[1]
-#     print(record)
-
-#                 record_list[key] = match.group(1).strip()
-# print(record_list)
+#the user enters the record pattern number
+record_pattern_number = input('Enter record pattern number: ')
+#that's used to say which regex dictionary should be used
+pattern_dictionary_identifier = "rx_dict_" + record_pattern_number
+#the file in this case is consistently named, so all we have to do is add the record pattern number the user entered earlier.
+# this could also be a straightforward input, if the filenames weren't so consistent.
+filepath = "2019-08-06-hidvl-dmd-dump_sample_pattern"+record_pattern_number+".txt"
+#let's parse the records!
+parsed_records_output = parse_records(pattern_dictionary_identifier,filepath)
+#since the function returns both the records and the regex dict, store the returned records in a variable so we can pass them to the output function.
+parsed_records = parsed_records_output[0]
+#store the regex dictionary in its own variable so we can pass it to the output function
+parsed_regex_dict = parsed_records_output[1]
+#let's make a file so I can work with these records! Goodbye, metadata in a text file!
+output_csv(record_pattern_number,parsed_records,parsed_regex_dict)

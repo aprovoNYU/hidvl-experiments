@@ -122,3 +122,74 @@ Run time for episode 01: 60 min.
 655 b0 $a Spectacles of Religiosities
 655 b0 $a Keynote address
 RIGHTS HOLDER INFORMATION: Hemispheric Institute of Performance and Politics
+DELIMITER 359 DELIMITERDELIMITERDELIMITERDELIMITERDELIMITER
+
+Subject: HI Episode Submission HI2006.003_03
+
+HI Episode Submission:
+
+-----------------------------------------------------------
+
+Submission timestamp: 2007-08-21
+Submission type: final
+Supplemental or Correction description: Eliminated "Supplemental or Correction description". Corrections made to fields 440, 245, 246, 260, 500, 653, 655 and RIGHTS HOLDER INFORMATION.
+
+Subject: HI Episode Submission HI2006.003_03
+
+HI Episode Submission:
+
+-----------------------------------------------------------
+
+Submission timestamp: 2006-08-17
+
+035 bb $a HI2006.003_03
+
+Tape 1 of 1
+534 bb $pMedia source original:$e1 videocassette (U-matic) ; dimensions: 3/4 in. (OUTSOURCE CONVERSION)
+SOURCE TAPE GENERATION: original recording
+440 b0 $a CADA (Colectivo Acciones de Arte) collection
+Episode part 1 of 1 episode parts for this Event
+MASTERING OFFSET TIMECODE: 0:20:29:00
+Run time for episode 03 --> 0.5 min.
+245 00 $a '¡Ay Sudamérica!': Scrolling of performance synopsis (English version) / $c CADA (Colectivo Acciones de Arte), producer ; CADA, director.
+246 3b $a ¡Ay Sudamérica! -Video/action on art & politics (scrolling of performance
+synopsis)
+260 bb $a Santiago, Chile : $c 1981 July 12.
+511 0b $a Lotty Rosenfeld, creator/performer ; Diamela Eltit, creator/performer ; Raúl Zurita, creator/performer ; Juan Castillo, creator/performer ; Fernando Balcells, creator/performer.
+520 bb $a The Colectivo de Acciones de Arte (CADA) is a Chilean activist group of
+artists (artists Lotty Rosenfeld and Juan Castillo, sociologist Fernando
+Balcells, poet Raúl Zurita and novelist Diamela Eltit) who used
+performance to challenge the Pinochet dictatorship in Chile. One of the
+most important contributors to the ‘Escena Avanzada’, CADA incorporated
+strategies of theatricality and performance as an essential element to all
+its ‘art actions’, while questioning the practices and institutions of
+all politics and conceiving art as a necessary social practice that
+eradicated the traditional distance between the artist and the spectator.
+Committed to the foundation of an open and spontaneous practice of
+spectatorship, their ‘interventions in everyday life’ intended to
+interrupt and alter the normalized routines of the daily urban life of the
+citizen, by means of a semiotic subversion that decontextualized and
+semantically restructured urban behaviors, locations and signs. On July,
+12th, 1981, six small airplanes, flying in perfect formation over Santiago,
+dropped 400,000 flyers discussing the relationship between art and society.
+This action referenced the bombardment of the House of Government (La
+Moneda), which marked the fall of Salvador Allende's democratic government
+and the beginning of Augusto Pinochet’s dictatorship in Chile. Through
+this ‘acción sobre arte y política’, CADA reconstructed the political
+trauma of 1973, while proposing a new critical political perspective. The
+flyers contained a message that simultaneously upheld each person’s right
+to a decent standard of living and proposed that the general public was
+capable of instating an entirely new concept of art — one that could
+overcome traditional, elite boundaries and become part of public life. Here
+shown is a scrolling text introducing the performance (in English).
+546 bb $a English
+653 bb $a Colectivo Acciones de Arte (CADA)
+653 bb $a Ay Sudamérica
+653 bb $a Dictatorship Chile -Augusto Pinochet
+653 bb $a Art and politics
+653 bb $a Civil rights activism
+655 b0 $a Performance
+655 b0 $a Political performance
+655 b0 $a Acción
+655 b0 $a Video/action on art & politics
+RIGHTS HOLDER INFORMATION: CADA (Colectivo Acciones de Arte)
