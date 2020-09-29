@@ -6,15 +6,15 @@ from datetime import datetime
 filetime = datetime.now()
 filetime = filetime.strftime("%Y-%m-%d_%I-%M_%p")
 def parse_records(pattern_dict,filepath):
-    # create a dictionary of regular expressions that select the value of a given field. pattern 2 currently using named groups, although this isn't called in the script.
+    # create a dictionary of regular expressions that select the value of a given field.
+    # pattern 2 currently using named groups, although this isn't called in the script.
     # these regular expression dictionaries are based partially on https://www.vipinajayakumar.com/parsing-text-with-python/
 
     # TO DO: need to deal with weird ordering of fields
     regex_dicts = {
         "rx_dict_1" : {
         'HI_number': re.compile(r'Subject: HI Episode Submission (HI[0-9]{4}.[0-9]{3}_[0-9]{2})\n'),
-        # TO DO: submission could read as follows or could have different language
-        'Correction_note': re.compile(r'Supplemental or Correction description: (.*?(?=Subject: HI Collection Survey Form Submission))',
+        'Correction_note': re.compile(r'Supplemental or Correction description: (.*?(?=Subject|HI \w.{1,} ))',
             flags=re.S),
         'Format': re.compile(r'534 .{2} \$p(.*?(?=440|SOURCE TAPE GENERATION))', flags=re.S),
         'Source_Tape_Generation': re.compile(r'SOURCE TAPE GENERATION:(.*?(?=440))',flags=re.S),
@@ -23,7 +23,9 @@ def parse_records(pattern_dict,filepath):
         'Run_time': re.compile(r'Run time for episode [0-9]{2}: (.*?(?=[0-9]{3}))', flags=re.S),
         'Title': re.compile(r'245 .{2} \$a(.*?(?=[0-9]{3}))', flags=re.S),
         'Alternate_Titles': re.compile(r'246 .{2} \$a(.*?(?=[0-9]{3}))', flags=re.S),
-        'Production_Information': re.compile(r'260 .{2}(.*?(?=5.{2}))', flags=re.S),
+            #to solve issue with some 260s getting populated by match from comment,
+            #try 260 .{2}(.*?(?=\n[0-9]{3})) and get rid of re.S flag
+        'Production_Information': re.compile(r'260 .{2}(.*?(?=\n[0-9]{3}))'),
         'Main_Production_Credits': re.compile(r'508 .{2} \$a(.*?(?=[0-9]{3}))', flags=re.S),
         'Participants': re.compile(r'511 .{2} \$a(.*?(?=[0-9]{3}))', flags=re.S),
         'Summary': re.compile(r'520 .{2} \$a(.*?(?=5|6[0-9]{2}))', flags=re.S),
@@ -40,14 +42,15 @@ def parse_records(pattern_dict,filepath):
             r'Supplemental or Correction description: (?P<Correction_note>.*?(?=HI Episode Submission))', flags=re.S),
         'Format': re.compile(r'Format \(534\): Media Source Original: (?P<Format>.*)'),
         'Source_Tape_Generation': re.compile(r'SOURCE TAPE GENERATION: (?P<Source_Tape_Generation>.*)'),
+        'Mastering Offset Timecode': re.compile(r'MASTERING OFFSET TIMECODE:(.*)'),
         'Run_Time': re.compile(
-            r'Run time for episode [0-9]{2} \(300\): --> (?P<Run_Time>[0-9]{2}:[0-9]{2}:[0-9]{2} \(hh:mm:ss\))'),
+            r'Run time for episode [0-9]{2} \(300\): -->(.+)(?=\()'),
         'Series_Title': re.compile(r'SERIES TITLE\(S\) \(830\):\n(?P<Series_Title>.*)'),
         'Meeting_Information': re.compile(r'MEETING INFORMATION \(711\):\n(?P<Meeting_Information>.*)'),
         'Title': re.compile(r'TITLE \(245\):\n(?P<Title>.*)'),
         'Alternate_Titles': re.compile(r'ALTERNATE TITLE\(S\) \(246\):(?P<Alternate_Titles>.*?(?=DATE))', flags=re.S),
         'Date_of_Production': re.compile(r'DATE OF PRODUCTION \(260_c\):\n(?P<Date_of_Production>.*)'),
-        'Location_Venue': re.compile(r'LOCATION\/VENUE OF EVENT \(518\):\n(?P<Location_Venue>.*)'),
+        'Location_Venue': re.compile(r'LOCATION/VENUE OF EVENT \(518\):\n(?P<Location_Venue>.*)'),
         'Language': re.compile(r'LANGUAGE \(546\):\n(?P<Language>.*)'),
         'Main_Production_Credits': re.compile(
             r'MAIN PRODUCTION CREDIT\(S\) \(508\+700\):\n(?P<Main_Production_Credits>.*)'),
@@ -87,7 +90,7 @@ def parse_records(pattern_dict,filepath):
         #split each record into its own chunk of text
         records_split = rec_delim_re.split(file_contents)
         # note that when splitting, you end up with an empty list item '' at the beginning
-        # a filter can be used, as explained in https://stackoverflow.com/questions/16840851/python-regex-split-without-empty-string suggests using a filter
+        # a filter can be used, as explained in https://stackoverflow.com/questions/16840851/python-regex-split-without-empty-string
         records = list(filter(None,records_split))
 
         print(records)
@@ -143,6 +146,7 @@ def parse_records(pattern_dict,filepath):
                         #if the field is not repeatable, it might still have newline characters in it. We replace these with nothing.
                         else:
                             record_dict[key] = match.group(1).strip().replace("    ", "").replace("\n", "")
+
             #once a single record has been searched and the fields/values added to the record dictionary, the record gets put in a list
             records_list.append(record_dict)
     #return the list of records and the regex dictionary used. This is because when writing the CSV, we want to use the regex dictionary keys as headers.
@@ -169,7 +173,8 @@ record_pattern_number = input('Enter record pattern number: ')
 pattern_dictionary_identifier = "rx_dict_" + record_pattern_number
 #the file in this case is consistently named, so all we have to do is add the record pattern number the user entered earlier.
 # this could also be a straightforward input, if the filenames weren't so consistent.
-filepath = "2019-08-06-hidvl-dmd-dump_sample_pattern"+record_pattern_number+".txt"
+filepath = "hidvl-dmd-dump-2019-11-18_pattern"+record_pattern_number+".txt"
+#filepath = input('enter file name')
 #let's parse the records!
 parsed_records_output = parse_records(pattern_dictionary_identifier,filepath)
 #since the function returns both the records and the regex dict, store the returned records in a variable so we can pass them to the output function.

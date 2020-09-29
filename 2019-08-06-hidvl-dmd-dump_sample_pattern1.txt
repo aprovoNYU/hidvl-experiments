@@ -193,3 +193,48 @@ shown is a scrolling text introducing the performance (in English).
 655 b0 $a Acción
 655 b0 $a Video/action on art & politics
 RIGHTS HOLDER INFORMATION: CADA (Colectivo Acciones de Arte)
+DELIMITER 758 DELIMITERDELIMITERDELIMITERDELIMITERDELIMITER
+
+Subject: HI Episode Submission HI2007.134_01
+
+HI Episode Submission:
+
+-----------------------------------------------------------
+
+Submission timestamp: 2007-11-17
+Submission type: final
+Supplemental or Correction description: Corrections made to fields 245, 246, and 520.
+
+Subject: HI Episode Submission HI2007.134_01
+
+HI Episode Submission:
+
+-----------------------------------------------------------
+
+Submission timestamp: 2007-07-03
+Submission type: new
+035 bb $a HI2007.134_01
+
+Tape 1 of 1
+534 bb $pMedia source original:$e1 videocassette (Mini DV) ; dimensions: 1/4 in. SP; film brand description: Panasonic DVM60
+SOURCE TAPE GENERATION: original recording
+440 b0 $a CORPOLÍTICAS / Body Politics in the Americas: Formations of Race, Class and Gender
+711 2b $a Hemispheric Institute Annual Seminar/Encuentro$n(6th :$d2007 :$cBuenos Aires, Argentina)
+Episode part 1 of 1 episode parts for this Event
+MASTERING OFFSET TIMECODE: 00:00:12:00
+Run time for episode 01 --> 17 min.
+245 00 $a Interview with Luis Pazos & Héctor Puppo (Grupo Escombros) / $c Hemispheric Institute, producer ; Centro Cultural Recoleta, producer.
+246 3b $a Interview with Grupo Escombros (Luis Pazos & Héctor Puppo)
+518  $aBuenos Aires, Argentina
+260 bb$c 2007 June 8.
+508 bb $a Gray Wetzler, videographer.
+511 0b $a Luis Pazos, interviewee ; Héctor Puppo, interviewee ; Marcela Fuentes, interviewer.
+520 bb $a Interview with Luis Pazos and Héctor Puppo of the Grupo Escombros, conducted by Marcela Fuentes as a part of the 6th Encuentro of the Hemispheric Institute of Performance and Politics, celebrated in June of 2007 in Buenos Aires, Argentina under the title ‘CORPOLÍTICAS en las Américas: Formaciones de Raza, Clase y Género / Body Politics in the Americas: Formations of Race, Class and Gender’ (http://hemi.nyu.edu/eng/seminar/2007/index.html). The Argentinean Grupo Escombros (www.grupoescombros.com.ar) was founded in 1988 as a street arts group. Between 1989 and 2007 it organized performances that involved artists from all disciplines, as well as audience members, who acted as co-authors.
+546 bb $a Spanish
+653 bb $a Hemispheric Institute
+653 bb $a Performance and politics
+653 bb $a Body Politics
+653 bb $a Grupo Escombros
+653 bb $a Argentina Arts and Politics
+655 b0 $a Interview
+RIGHTS HOLDER INFORMATION: Hemispheric Institute of Performance and Politics

@@ -1,0 +1,4509 @@
+[
+  {
+    "op": "core/column-move",
+    "columnName": "NOID",
+    "index": 0,
+    "description": "Move column NOID to position 0"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Pattern",
+          "expression": "value",
+          "columnName": "Pattern",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "2.0",
+                "l": "2.0"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "record-based"
+    },
+    "columnName": "Format",
+    "expression": "grel:value.replace(\"Media source original: \",\"\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Format using expression grel:value.replace(\"Media source original: \",\"\")"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Pattern",
+          "expression": "value",
+          "columnName": "Pattern",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "2.0",
+                "l": "2.0"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "record-based"
+    },
+    "columnName": "Date_of_Production",
+    "expression": "grel:value.replace(/Jan,|Jan |Jan./,\"January \").replace(/Feb,|Feb |Feb./,\"February \").replace(/Mar,|Mar |Mar./,\"March \").replace(/Apr,|Apr |Apr./,\"April \").replace(/May,/,\"May \").replace(/Jun,|Jun |Jun./,\"June \").replace(/July,/,\"July \").replace(/Aug,|Aug |Aug./,\"August \").replace(/Sept,|Sept |Sept./,\"September \").replace(/Oct,|Oct |Oct./,\"October \").replace(/Nov,|Nov |Nov./,\"November \").replace(/Dec,|Dec |Dec./,\"December \")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Date_of_Production using expression grel:value.replace(/Jan,|Jan |Jan./,\"January \").replace(/Feb,|Feb |Feb./,\"February \").replace(/Mar,|Mar |Mar./,\"March \").replace(/Apr,|Apr |Apr./,\"April \").replace(/May,/,\"May \").replace(/Jun,|Jun |Jun./,\"June \").replace(/July,/,\"July \").replace(/Aug,|Aug |Aug./,\"August \").replace(/Sept,|Sept |Sept./,\"September \").replace(/Oct,|Oct |Oct./,\"October \").replace(/Nov,|Nov |Nov./,\"November \").replace(/Dec,|Dec |Dec./,\"December \")"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Pattern",
+          "expression": "value",
+          "columnName": "Pattern",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "2.0",
+                "l": "2.0"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "record-based"
+    },
+    "columnName": "Date_of_Production",
+    "expression": "value.replace(/\\s+/,' ')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Date_of_Production using expression value.replace(/\\s+/,' ')"
+  },
+  {
+    "op": "core/column-split",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Pattern",
+          "expression": "value",
+          "columnName": "Pattern",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "2.0",
+                "l": "2.0"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "record-based"
+    },
+    "columnName": "Summary",
+    "guessCellType": false,
+    "removeOriginalColumn": false,
+    "mode": "separator",
+    "separator": "\\[\\w+\\]",
+    "regex": true,
+    "maxColumns": 0,
+    "description": "Split column Summary by separator"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Pattern",
+          "expression": "value",
+          "columnName": "Pattern",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "2.0",
+                "l": "2.0"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Summary",
+    "expression": "grel:cells[\"Summary 2\"].value",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Summary using expression grel:cells[\"Summary 2\"].value"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Summary 1",
+    "description": "Remove column Summary 1"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Summary 2",
+    "description": "Remove column Summary 2"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Pattern",
+          "expression": "value",
+          "columnName": "Pattern",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "2.0",
+                "l": "2.0"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        },
+        {
+          "type": "text",
+          "name": "Summary 3",
+          "columnName": "Summary 3",
+          "query": "",
+          "mode": "text",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "record-based"
+    },
+    "columnName": "Rights_Holder",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Rights_Holder using expression value.trim()"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Pattern",
+          "expression": "value",
+          "columnName": "Pattern",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "2.0",
+                "l": "2.0"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "record-based"
+    },
+    "columnName": "Summary 3",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "David Khang is a visual, performance, and biologicalartist whose practice is informed by education in psychology, theology,dentistry, and law. Khang selectively imbeds these disciplinary codes intohis work, to compose interdisciplinary languages that materialize invisual, textual, and spoken forms. In performing, Khang often embodiesthese languages to interrogate social constructions – of gender, race,and interspecies relations – that are present within dominant historicnarratives in contemporary culture. By strategically employing non-nativelanguages and code switching, Khang produces divergent, dissonant, andoften hyperbolic and humorous readings that re-imagine the poetic and thepolitical.",
+          "David Khang is a visual, performance, andbiological artist whose practice is informed by education in psychology,theology, dentistry, and law. Khang selectively imbeds these disciplinarycodes into his work, to compose interdisciplinary languages thatmaterialize in visual, textual, and spoken forms. In performing, Khangoften embodies these languages to interrogate social constructions – ofgender, race, and interspecies relations – that are present withindominant historic narratives in contemporary culture. By strategicallyemploying non-native languages and code switching, Khang producesdivergent, dissonant, and often hyperbolic and humorous readings thatre-imagine the poetic and the political.",
+          " David Khang is a visual, performance, andbiological artist whose practice is informed by education in psychology,theology, dentistry, and law. Khang selectively imbeds these disciplinarycodes into his work, to compose interdisciplinary languages thatmaterialize in visual, textual, and spoken forms. In performing, Khangoften embodies these languages to interrogate social constructions – ofgender, race, and interspecies relations – that are present withindominant historic narratives in contemporary culture. By strategicallyemploying non-native languages and code switching, Khang producesdivergent, dissonant, and often hyperbolic and humorous readings thatre-imagine the poetic and the political.",
+          " David Khang is a visual, performance,and biological artist whose practice is informed by education inpsychology, theology, dentistry, and law. Khang selectively imbeds thesedisciplinary codes into his work, to compose interdisciplinary languagesthat materialize in visual, textual, and spoken forms. In performing, Khangoften embodies these languages to interrogate social constructions – ofgender, race, and interspecies relations – that are present withindominant historic narratives in contemporary culture. By strategicallyemploying non-native languages and code switching, Khang producesdivergent, dissonant, and often hyperbolic and humorous readings thatre-imagine the poetic and the political.",
+          "David Khang is a visual, performance, and biological artist whose practice is informed by education in psychology, theology, dentistry, and law. Khang selectively imbeds these disciplinary codes into his work, to compose interdisciplinary languages that materialize in visual, textual, and spoken forms. In performing, Khang often embodies these languages to interrogate social constructions – of gender, race, and interspecies relations – that are present within dominant historic narratives in contemporary culture. By strategically employing non-native languages and code switching, Khang produces divergent, dissonant, and often hyperbolic and humorous readings that re-imagine the poetic and the political.",
+          "David Khang is a visual, performance, and biological artist whosepractice is informed by education in psychology, theology, dentistry, andlaw. Khang selectively imbeds these disciplinary codes into his work, tocompose interdisciplinary languages that materialize in visual, textual,and spoken forms. In performing, Khang often embodies these languages tointerrogate social constructions – of gender, race, and interspeciesrelations – that are present within dominant historic narratives incontemporary culture. By strategically employing non-native languages andcode switching, Khang produces divergent, dissonant, and often hyperbolicand humorous readings that re-imagine the poetic and the political.",
+          "David Khang is a visual, performance, and biological artistwhose practice is informed by education in psychology, theology, dentistry,and law. Khang selectively imbeds these disciplinary codes into his work,to compose interdisciplinary languages that materialize in visual, textual,and spoken forms. In performing, Khang often embodies these languages tointerrogate social constructions – of gender, race, and interspeciesrelations – that are present within dominant historic narratives incontemporary culture. By strategically employing non-native languages andcode switching, Khang produces divergent, dissonant, and often hyperbolicand humorous readings that re-imagine the poetic and the political.",
+          "David Khang is a visual,performance, and biological artist whose practice is informed by educationin psychology, theology, dentistry, and law. Khang selectively imbeds thesedisciplinary codes into his work, to compose interdisciplinary languagesthat materialize in visual, textual, and spoken forms. In performing, Khangoften embodies these languages to interrogate social constructions – ofgender, race, and interspecies relations – that are present withindominant historic narratives in contemporary culture. By strategicallyemploying non-native languages and code switching, Khang producesdivergent, dissonant, and often hyperbolic and humorous readings thatre-imagine the poetic and the political.",
+          "David Khangis a visual, performance, and biological artist whose practice is informedby education in psychology, theology, dentistry, and law. Khang selectivelyimbeds these disciplinary codes into his work, to compose interdisciplinarylanguages that materialize in visual, textual, and spoken forms. Inperforming, Khang often embodies these languages to interrogate socialconstructions – of gender, race, and interspecies relations – that arepresent within dominant historic narratives in contemporary culture. Bystrategically employing non-native languages and code switching, Khangproduces divergent, dissonant, and often hyperbolic and humorous readingsthat re-imagine the poetic and the political.",
+          "DavidKhang is a visual, performance, and biological artist whose practice isinformed by education in psychology, theology, dentistry, and law. Khangselectively imbeds these disciplinary codes into his work, to composeinterdisciplinary languages that materialize in visual, textual, and spokenforms. In performing, Khang often embodies these languages to interrogatesocial constructions – of gender, race, and interspecies relations –that are present within dominant historic narratives in contemporaryculture. By strategically employing non-native languages and codeswitching, Khang produces divergent, dissonant, and often hyperbolic andhumorous readings that re-imagine the poetic and the political."
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "David Khang is a visual, performance, and biological artist whose practice is informed by education in psychology, theology, dentistry, and law. Khang selectively imbeds these disciplinary codes into his work, to compose interdisciplinary languages that materialize in visual, textual, and spoken forms. In performing, Khang often embodies these languages to interrogate social constructions – of gender, race, and interspecies relations – that are present within dominant historic narratives in contemporary culture. By strategically employing non-native languages and code switching, Khang produces divergent, dissonant, and often hyperbolic and humorous readings that re-imagine the poetic and the political."
+      }
+    ],
+    "description": "Mass edit cells in column Summary 3"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Pattern",
+          "expression": "value",
+          "columnName": "Pattern",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "2.0",
+                "l": "2.0"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "record-based"
+    },
+    "columnName": "Artist_Bio",
+    "expression": "grel:cells[\"Summary 3\"].value",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Artist_Bio using expression grel:cells[\"Summary 3\"].value"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Summary 3",
+    "description": "Remove column Summary 3"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "record-based"
+    },
+    "columnName": "Date_of_Production",
+    "expression": "grel:value.chomp(\".\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Date_of_Production using expression grel:value.chomp(\".\")"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Pattern",
+          "expression": "value",
+          "columnName": "Pattern",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "record-based"
+    },
+    "columnName": "Language_Note",
+    "expression": "grel:forNonBlank(value,nonblank,\"In \" + cells[\"Language_List\"].value.replace(\",\",\", \") +\". \" + value,\"In \" + cells[\"Language_List\"].value.replace(\",\",\", \") + \".\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Language_Note using expression grel:forNonBlank(value,nonblank,\"In \" + cells[\"Language_List\"].value.replace(\",\",\", \") +\". \" + value,\"In \" + cells[\"Language_List\"].value.replace(\",\",\", \") + \".\")"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Pattern",
+          "expression": "value",
+          "columnName": "Pattern",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "2.0",
+                "l": "2.0"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "record-based"
+    },
+    "columnName": "Language_Note",
+    "expression": "grel:\"In \"+value+\".\"",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Language_Note using expression grel:\"In \"+value+\".\""
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "record-based"
+    },
+    "columnName": "Language_List",
+    "expression": "grel:value.replace(\"English\",\"eng\").replace(\"Spanish\",\"spa\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Language_List using expression grel:value.replace(\"English\",\"eng\").replace(\"Spanish\",\"spa\")"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "record-based"
+    },
+    "columnName": "Location_Venue",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Location_Venue using expression value.trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "record-based"
+    },
+    "columnName": "Date_of_Production",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Date_of_Production using expression value.trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "record-based"
+    },
+    "columnName": "Main_Production_Credits",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Main_Production_Credits using expression value.trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "record-based"
+    },
+    "columnName": "Worktypes",
+    "expression": "grel:value.replace(\",\",\"|\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Worktypes using expression grel:value.replace(\",\",\"|\")"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Alternate_Titles",
+    "expression": "grel:value.replace(\"(\",\"\").replace(\")\",\"\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Alternate_Titles using expression grel:value.replace(\"(\",\"\").replace(\")\",\"\")"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "Participants",
+          "columnName": "Participants",
+          "query": "",
+          "mode": "text",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Participants",
+    "expression": "grel:value.replace(\"; ;\",\";\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Participants using expression grel:value.replace(\"; ;\",\";\")"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "Participants",
+          "columnName": "Participants",
+          "query": "",
+          "mode": "text",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Participants",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "; David Khang, performer ; Cheto Castellano, performer ; Lissette Olivares, performer."
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "David Khang, performer ; Cheto Castellano, performer ; Lissette Olivares, performer."
+      }
+    ],
+    "description": "Mass edit cells in column Participants"
+  },
+  {
+    "op": "core/column-split",
+    "engineConfig": {
+      "facets": [],
+      "mode": "record-based"
+    },
+    "columnName": "Main_Production_Credits",
+    "guessCellType": false,
+    "removeOriginalColumn": false,
+    "mode": "separator",
+    "separator": "\\n",
+    "regex": true,
+    "maxColumns": 0,
+    "description": "Split column Main_Production_Credits by separator"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "record-based"
+    },
+    "columnName": "Main_Production_Credits 1",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Choreographer and artistic director: Heidi Latsky",
+          "Choreographer and artistic director: Heidi Latsky ",
+          "Choreographer and artistic director:Heidi Latsky"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Choreographer and artistic director: Heidi Latsky"
+      }
+    ],
+    "description": "Mass edit cells in column Main_Production_Credits 1"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Series_Title",
+    "expression": "grel:value + \" collection\"",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Series_Title using expression grel:value + \" collection\""
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "Subjects_653",
+          "columnName": "Subjects_653",
+          "query": "|",
+          "mode": "text",
+          "caseSensitive": false,
+          "invert": false
+        },
+        {
+          "type": "list",
+          "name": "Pattern",
+          "expression": "value",
+          "columnName": "Pattern",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "2.0",
+                "l": "2.0"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "expression": "grel:value.replace(\"|\",\"., \")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Subjects_653 using expression grel:value.replace(\"|\",\"., \")"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "Subjects_653",
+          "columnName": "Subjects_653",
+          "query": ".,",
+          "mode": "text",
+          "caseSensitive": false,
+          "invert": true
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "expression": "grel:value.replace(\",\",\"., \")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Subjects_653 using expression grel:value.replace(\",\",\"., \")"
+  },
+  {
+    "op": "core/multivalued-cell-split",
+    "columnName": "Subjects_653",
+    "keyColumnName": "NOID",
+    "mode": "separator",
+    "separator": ".,",
+    "regex": false,
+    "description": "Split multi-valued cells in column Subjects_653"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Subjects_653 using expression value.trim()"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "Subjects_653",
+          "columnName": "Subjects_653",
+          "query": ",",
+          "mode": "text",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "\"Mission District (San Francisco, Calif.)\",Technology and society"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "\"Mission District (San Francisco, Calif.)\"||Technology and society"
+      }
+    ],
+    "description": "Mass edit cells in column Subjects_653"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "Subjects_653",
+          "columnName": "Subjects_653",
+          "query": ",",
+          "mode": "text",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Hip-hop culture,\" War on Terrorism, 2001-\",Solidarity--Political aspects"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Hip-hop culture||\" War on Terrorism, 2001-\"||Solidarity--Political aspects"
+      }
+    ],
+    "description": "Mass edit cells in column Subjects_653"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "Subjects_653",
+          "columnName": "Subjects_653",
+          "query": ",",
+          "mode": "text",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "\" Iraq War, 2003-2011 | Protest movements.\", State violence, Ritual in art"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "\" Iraq War, 2003-2011 | Protest movements.\"|| State violence|| Ritual in art"
+      }
+    ],
+    "description": "Mass edit cells in column Subjects_653"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653",
+          "expression": "value",
+          "columnName": "Subjects_653",
+          "invert": true,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Pinochet Ugarte, Augusto. Crucial day, September 11, 1973",
+                "l": "Pinochet Ugarte, Augusto. Crucial day, September 11, 1973"
+              }
+            },
+            {
+              "v": {
+                "v": "Khang, David",
+                "l": "Khang, David"
+              }
+            },
+            {
+              "v": {
+                "v": "Marginality, Social",
+                "l": "Marginality, Social"
+              }
+            },
+            {
+              "v": {
+                "v": "\"Mission District (San Francisco, Calif.)\"||Technology and society",
+                "l": "\"Mission District (San Francisco, Calif.)\"||Technology and society"
+              }
+            },
+            {
+              "v": {
+                "v": "\" Marginality, Social.\"",
+                "l": "\" Marginality, Social.\""
+              }
+            },
+            {
+              "v": {
+                "v": "October Crisis, Québec, 1970",
+                "l": "October Crisis, Québec, 1970"
+              }
+            },
+            {
+              "v": {
+                "v": "\" Iraq War, 2003-2011 | Protest movements.\"|| State violence|| Ritual in art",
+                "l": "\" Iraq War, 2003-2011 | Protest movements.\"|| State violence|| Ritual in art"
+              }
+            },
+            {
+              "v": {
+                "v": "Hip-hop culture||\" War on Terrorism, 2001-\"||Solidarity--Political aspects",
+                "l": "Hip-hop culture||\" War on Terrorism, 2001-\"||Solidarity--Political aspects"
+              }
+            },
+            {
+              "v": {
+                "v": "Young, La Monte--Criticism and interpretation",
+                "l": "Young, La Monte--Criticism and interpretation"
+              }
+            },
+            {
+              "v": {
+                "v": "\"Castellanos, Teo\"",
+                "l": "\"Castellanos, Teo\""
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        },
+        {
+          "type": "text",
+          "name": "Subjects_653",
+          "columnName": "Subjects_653",
+          "query": ",",
+          "mode": "text",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "expression": "grel:value.replace(\",\",\"||\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Subjects_653 using expression grel:value.replace(\",\",\"||\")"
+  },
+  {
+    "op": "core/multivalued-cell-split",
+    "columnName": "Subjects_653",
+    "keyColumnName": "NOID",
+    "mode": "separator",
+    "separator": "||",
+    "regex": false,
+    "description": "Split multi-valued cells in column Subjects_653"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "record-based"
+    },
+    "columnName": "Subjects_653",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Subjects_653 using expression value.trim()"
+  },
+  {
+    "op": "core/recon",
+    "engineConfig": {
+      "facets": [],
+      "mode": "record-based"
+    },
+    "columnName": "Subjects_653",
+    "config": {
+      "mode": "standard-service",
+      "service": "http://localhost:8000/reconcile",
+      "identifierSpace": "http://localhost:8000/",
+      "schemaSpace": "http://localhost:8000/",
+      "type": {
+        "id": "/csv-recon",
+        "name": "CSV-recon"
+      },
+      "autoMatch": true,
+      "columnDetails": [],
+      "limit": 0
+    },
+    "description": "Reconcile cells in column Subjects_653 to type /csv-recon"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "Khang, David",
+    "judgment": "new",
+    "shareNewTopics": true,
+    "description": "Mark to create one single new item for all cells containing \"Khang, David\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "Calligraphy",
+    "judgment": "new",
+    "shareNewTopics": true,
+    "description": "Mark to create one single new item for all cells containing \"Calligraphy\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "Embodiment",
+    "judgment": "matched",
+    "match": {
+      "id": "$aEmbodiment.",
+      "name": " Embodiment.",
+      "types": [
+        "/csv-recon"
+      ],
+      "score": 0.9
+    },
+    "shareNewTopics": false,
+    "description": "Match item  Embodiment. ($aEmbodiment.) for cells containing \"Embodiment\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "Young, La Monte--Criticism and interpretation",
+    "judgment": "new",
+    "shareNewTopics": true,
+    "description": "Mark to create one single new item for all cells containing \"Young, La Monte--Criticism and interpretation\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "Cultural heritage",
+    "judgment": "matched",
+    "match": {
+      "id": "$aCultural heritage",
+      "name": " Cultural heritage",
+      "types": [
+        "/csv-recon"
+      ],
+      "score": 0.9696969696969697
+    },
+    "shareNewTopics": false,
+    "description": "Match item  Cultural heritage ($aCultural heritage) for cells containing \"Cultural heritage\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "Monarch butterfly",
+    "judgment": "new",
+    "shareNewTopics": true,
+    "description": "Mark to create one single new item for all cells containing \"Monarch butterfly\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "Scatology in art",
+    "judgment": "new",
+    "shareNewTopics": true,
+    "description": "Mark to create one single new item for all cells containing \"Scatology in art\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "Identity politics",
+    "judgment": "matched",
+    "match": {
+      "id": "$aIdentity politics.",
+      "name": " Identity politics.",
+      "types": [
+        "/csv-recon"
+      ],
+      "score": 0.9333333333333333
+    },
+    "shareNewTopics": false,
+    "description": "Match item  Identity politics. ($aIdentity politics.) for cells containing \"Identity politics\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "Marginality, Social",
+    "judgment": "matched",
+    "match": {
+      "id": "$aMarginality, Social.",
+      "name": " Marginality, Social.",
+      "types": [
+        "/csv-recon"
+      ],
+      "score": 0.9444444444444444
+    },
+    "shareNewTopics": false,
+    "description": "Match item  Marginality, Social. ($aMarginality, Social.) for cells containing \"Marginality, Social\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "Body politics",
+    "judgment": "matched",
+    "match": {
+      "id": "$aBody politics",
+      "name": " Body politics",
+      "types": [
+        "/csv-recon"
+      ],
+      "score": 0.96
+    },
+    "shareNewTopics": false,
+    "description": "Match item  Body politics ($aBody politics) for cells containing \"Body politics\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "Sexuality",
+    "judgment": "matched",
+    "match": {
+      "id": "$aSexuality",
+      "name": " Sexuality",
+      "types": [
+        "/csv-recon"
+      ],
+      "score": 0.9411764705882353
+    },
+    "shareNewTopics": false,
+    "description": "Match item  Sexuality ($aSexuality) for cells containing \"Sexuality\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "Translation and interpretation",
+    "judgment": "new",
+    "shareNewTopics": true,
+    "description": "Mark to create one single new item for all cells containing \"Translation and interpretation\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "Temporality",
+    "judgment": "new",
+    "shareNewTopics": true,
+    "description": "Mark to create one single new item for all cells containing \"Temporality\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "Performance art",
+    "judgment": "matched",
+    "match": {
+      "id": "$aPerformance art",
+      "name": " Performance art",
+      "types": [
+        "/csv-recon"
+      ],
+      "score": 0.9655172413793103
+    },
+    "shareNewTopics": false,
+    "description": "Match item  Performance art ($aPerformance art) for cells containing \"Performance art\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "Language & society",
+    "judgment": "new",
+    "shareNewTopics": true,
+    "description": "Mark to create one single new item for all cells containing \"Language & society\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "Diaspora",
+    "judgment": "new",
+    "shareNewTopics": true,
+    "description": "Mark to create one single new item for all cells containing \"Diaspora\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "El tanquetazo",
+    "judgment": "new",
+    "shareNewTopics": true,
+    "description": "Mark to create one single new item for all cells containing \"El tanquetazo\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "Geopolitics",
+    "judgment": "new",
+    "shareNewTopics": true,
+    "description": "Mark to create one single new item for all cells containing \"Geopolitics\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "Pinochet Ugarte, Augusto. Crucial day, September 11, 1973",
+    "judgment": "new",
+    "shareNewTopics": true,
+    "description": "Mark to create one single new item for all cells containing \"Pinochet Ugarte, Augusto. Crucial day, September 11, 1973\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "Memory--Political aspects--Chile",
+    "judgment": "new",
+    "shareNewTopics": true,
+    "description": "Mark to create one single new item for all cells containing \"Memory--Political aspects--Chile\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "Coup d'état (Chile: 1973)",
+    "judgment": "new",
+    "shareNewTopics": true,
+    "description": "Mark to create one single new item for all cells containing \"Coup d'état (Chile: 1973)\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "Memory--political aspects",
+    "judgment": "matched",
+    "match": {
+      "id": "$aMemory$xPolitical aspects.",
+      "name": " Memory | Political aspects.",
+      "types": [
+        "/csv-recon"
+      ],
+      "score": 0.823529411764706
+    },
+    "shareNewTopics": false,
+    "description": "Match item  Memory | Political aspects. ($aMemory$xPolitical aspects.) for cells containing \"Memory--political aspects\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "Violence--Cross-cultural studies",
+    "judgment": "new",
+    "shareNewTopics": true,
+    "description": "Mark to create one single new item for all cells containing \"Violence--Cross-cultural studies\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "Social transformation",
+    "judgment": "new",
+    "shareNewTopics": true,
+    "description": "Mark to create one single new item for all cells containing \"Social transformation\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "October Crisis, Québec, 1970",
+    "judgment": "new",
+    "shareNewTopics": true,
+    "description": "Mark to create one single new item for all cells containing \"October Crisis, Québec, 1970\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "Violence--History--20th Century",
+    "judgment": "new",
+    "shareNewTopics": true,
+    "description": "Mark to create one single new item for all cells containing \"Violence--History--20th Century\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "El Tanquetazo",
+    "judgment": "new",
+    "shareNewTopics": true,
+    "description": "Mark to create one single new item for all cells containing \"El Tanquetazo\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "Violence",
+    "judgment": "matched",
+    "match": {
+      "id": "$aViolence.",
+      "name": " Violence.",
+      "types": [
+        "/csv-recon"
+      ],
+      "score": 0.875
+    },
+    "shareNewTopics": false,
+    "description": "Match item  Violence. ($aViolence.) for cells containing \"Violence\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "Endurance art",
+    "judgment": "matched",
+    "match": {
+      "id": "$aEndurance art",
+      "name": " Endurance art",
+      "types": [
+        "/csv-recon"
+      ],
+      "score": 0.96
+    },
+    "shareNewTopics": false,
+    "description": "Match item  Endurance art ($aEndurance art) for cells containing \"Endurance art\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "Textuality",
+    "judgment": "new",
+    "shareNewTopics": true,
+    "description": "Mark to create one single new item for all cells containing \"Textuality\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "War on drugs",
+    "judgment": "matched",
+    "match": {
+      "id": "$aWar on drugs",
+      "name": " War on drugs",
+      "types": [
+        "/csv-recon"
+      ],
+      "score": 0.9565217391304348
+    },
+    "shareNewTopics": false,
+    "description": "Match item  War on drugs ($aWar on drugs) for cells containing \"War on drugs\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "Puerto Ricans | United States",
+    "judgment": "matched",
+    "match": {
+      "id": "$aPuerto Ricans$zUnited States.",
+      "name": " Puerto Ricans | United States.",
+      "types": [
+        "/csv-recon"
+      ],
+      "score": 0.9642857142857143
+    },
+    "shareNewTopics": false,
+    "description": "Match item  Puerto Ricans | United States. ($aPuerto Ricans$zUnited States.) for cells containing \"Puerto Ricans | United States\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "State violence",
+    "judgment": "matched",
+    "match": {
+      "id": "$aState violence",
+      "name": " State violence",
+      "types": [
+        "/csv-recon"
+      ],
+      "score": 0.962962962962963
+    },
+    "shareNewTopics": false,
+    "description": "Match item  State violence ($aState violence) for cells containing \"State violence\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "Families",
+    "judgment": "matched",
+    "match": {
+      "id": "$aFamilies.",
+      "name": " Families.",
+      "types": [
+        "/csv-recon"
+      ],
+      "score": 0.875
+    },
+    "shareNewTopics": false,
+    "description": "Match item  Families. ($aFamilies.) for cells containing \"Families\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        },
+        {
+          "type": "range",
+          "name": "Subjects_653",
+          "expression": "grel:facetCount(forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\")), \"forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \\\"(unreconciled)\\\", \\\"(blank)\\\"))\", \"Subjects_653\")",
+          "columnName": "Subjects_653",
+          "from": 45,
+          "to": 59,
+          "selectNumeric": true,
+          "selectNonNumeric": true,
+          "selectBlank": true,
+          "selectError": true
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "Spirituality",
+    "judgment": "matched",
+    "match": {
+      "id": "$aSpirituality.",
+      "name": " Spirituality.",
+      "types": [
+        "/csv-recon"
+      ],
+      "score": 0.9090909090909091
+    },
+    "shareNewTopics": false,
+    "description": "Match item  Spirituality. ($aSpirituality.) for cells containing \"Spirituality\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        },
+        {
+          "type": "range",
+          "name": "Subjects_653",
+          "expression": "grel:facetCount(forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\")), \"forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \\\"(unreconciled)\\\", \\\"(blank)\\\"))\", \"Subjects_653\")",
+          "columnName": "Subjects_653",
+          "from": 45,
+          "to": 59,
+          "selectNumeric": true,
+          "selectNonNumeric": true,
+          "selectBlank": true,
+          "selectError": true
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "\"Castellanos, Teo\"",
+    "judgment": "matched",
+    "match": {
+      "id": "",
+      "name": "Castellanos, Teo",
+      "types": [
+        "/csv-recon"
+      ],
+      "score": 0.9333333333333333
+    },
+    "shareNewTopics": false,
+    "description": "Match item Castellanos, Teo () for cells containing \"\"Castellanos, Teo\"\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        },
+        {
+          "type": "range",
+          "name": "Subjects_653",
+          "expression": "grel:facetCount(forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\")), \"forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \\\"(unreconciled)\\\", \\\"(blank)\\\"))\", \"Subjects_653\")",
+          "columnName": "Subjects_653",
+          "from": 45,
+          "to": 59,
+          "selectNumeric": true,
+          "selectNonNumeric": true,
+          "selectBlank": true,
+          "selectError": true
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "Poverty | Social aspects",
+    "judgment": "matched",
+    "match": {
+      "id": "$aPoverty$xSocial aspects.",
+      "name": " Poverty | Social aspects.",
+      "types": [
+        "/csv-recon"
+      ],
+      "score": 0.9583333333333333
+    },
+    "shareNewTopics": false,
+    "description": "Match item  Poverty | Social aspects. ($aPoverty$xSocial aspects.) for cells containing \"Poverty | Social aspects\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        },
+        {
+          "type": "range",
+          "name": "Subjects_653",
+          "expression": "grel:facetCount(forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\")), \"forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \\\"(unreconciled)\\\", \\\"(blank)\\\"))\", \"Subjects_653\")",
+          "columnName": "Subjects_653",
+          "from": 45,
+          "to": 59,
+          "selectNumeric": true,
+          "selectNonNumeric": true,
+          "selectBlank": true,
+          "selectError": true
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "Consumerism",
+    "judgment": "matched",
+    "match": {
+      "id": "$aConsumerism",
+      "name": " Consumerism",
+      "types": [
+        "/csv-recon"
+      ],
+      "score": 0.9523809523809524
+    },
+    "shareNewTopics": false,
+    "description": "Match item  Consumerism ($aConsumerism) for cells containing \"Consumerism\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        },
+        {
+          "type": "range",
+          "name": "Subjects_653",
+          "expression": "grel:facetCount(forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\")), \"forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \\\"(unreconciled)\\\", \\\"(blank)\\\"))\", \"Subjects_653\")",
+          "columnName": "Subjects_653",
+          "from": 45,
+          "to": 59,
+          "selectNumeric": true,
+          "selectNonNumeric": true,
+          "selectBlank": true,
+          "selectError": true
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "Consumption (Economics)",
+    "judgment": "matched",
+    "match": {
+      "id": "$aConsumption (Economics)",
+      "name": " Consumption (Economics)",
+      "types": [
+        "/csv-recon"
+      ],
+      "score": 0.9743589743589745
+    },
+    "shareNewTopics": false,
+    "description": "Match item  Consumption (Economics) ($aConsumption (Economics)) for cells containing \"Consumption (Economics)\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        },
+        {
+          "type": "range",
+          "name": "Subjects_653",
+          "expression": "grel:facetCount(forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\")), \"forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \\\"(unreconciled)\\\", \\\"(blank)\\\"))\", \"Subjects_653\")",
+          "columnName": "Subjects_653",
+          "from": 45,
+          "to": 59,
+          "selectNumeric": true,
+          "selectNonNumeric": true,
+          "selectBlank": true,
+          "selectError": true
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "Surrealism",
+    "judgment": "matched",
+    "match": {
+      "id": "$aSurrealism.",
+      "name": " Surrealism.",
+      "types": [
+        "/csv-recon"
+      ],
+      "score": 0.9
+    },
+    "shareNewTopics": false,
+    "description": "Match item  Surrealism. ($aSurrealism.) for cells containing \"Surrealism\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        },
+        {
+          "type": "range",
+          "name": "Subjects_653",
+          "expression": "grel:facetCount(forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\")), \"forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \\\"(unreconciled)\\\", \\\"(blank)\\\"))\", \"Subjects_653\")",
+          "columnName": "Subjects_653",
+          "from": 45,
+          "to": 59,
+          "selectNumeric": true,
+          "selectNonNumeric": true,
+          "selectBlank": true,
+          "selectError": true
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "Ritual.",
+    "judgment": "matched",
+    "match": {
+      "id": "$aRitual.",
+      "name": " Ritual.",
+      "types": [
+        "/csv-recon"
+      ],
+      "score": 0.9230769230769231
+    },
+    "shareNewTopics": false,
+    "description": "Match item  Ritual. ($aRitual.) for cells containing \"Ritual.\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        },
+        {
+          "type": "range",
+          "name": "Subjects_653",
+          "expression": "grel:facetCount(forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\")), \"forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \\\"(unreconciled)\\\", \\\"(blank)\\\"))\", \"Subjects_653\")",
+          "columnName": "Subjects_653",
+          "from": 45,
+          "to": 59,
+          "selectNumeric": true,
+          "selectNonNumeric": true,
+          "selectBlank": true,
+          "selectError": true
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "Multiculturalism",
+    "judgment": "matched",
+    "match": {
+      "id": "$aMulticulturalism.",
+      "name": " Multiculturalism.",
+      "types": [
+        "/csv-recon"
+      ],
+      "score": 0.9285714285714286
+    },
+    "shareNewTopics": false,
+    "description": "Match item  Multiculturalism. ($aMulticulturalism.) for cells containing \"Multiculturalism\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        },
+        {
+          "type": "range",
+          "name": "Subjects_653",
+          "expression": "grel:facetCount(forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\")), \"forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \\\"(unreconciled)\\\", \\\"(blank)\\\"))\", \"Subjects_653\")",
+          "columnName": "Subjects_653",
+          "from": 45,
+          "to": 59,
+          "selectNumeric": true,
+          "selectNonNumeric": true,
+          "selectBlank": true,
+          "selectError": true
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "Multiculturalism | United States",
+    "judgment": "matched",
+    "match": {
+      "id": "$aMulticulturalism$zUnited States.",
+      "name": " Multiculturalism | United States.",
+      "types": [
+        "/csv-recon"
+      ],
+      "score": 0.9655172413793103
+    },
+    "shareNewTopics": false,
+    "description": "Match item  Multiculturalism | United States. ($aMulticulturalism$zUnited States.) for cells containing \"Multiculturalism | United States\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        },
+        {
+          "type": "range",
+          "name": "Subjects_653",
+          "expression": "grel:facetCount(forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\")), \"forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \\\"(unreconciled)\\\", \\\"(blank)\\\"))\", \"Subjects_653\")",
+          "columnName": "Subjects_653",
+          "from": 45,
+          "to": 59,
+          "selectNumeric": true,
+          "selectNonNumeric": true,
+          "selectBlank": true,
+          "selectError": true
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "Race discrimination | United States",
+    "judgment": "matched",
+    "match": {
+      "id": "$aRace discrimination$zUnited States.",
+      "name": " Race discrimination | United States.",
+      "types": [
+        "/csv-recon"
+      ],
+      "score": 0.9696969696969697
+    },
+    "shareNewTopics": false,
+    "description": "Match item  Race discrimination | United States. ($aRace discrimination$zUnited States.) for cells containing \"Race discrimination | United States\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "Community power",
+    "judgment": "matched",
+    "match": {
+      "id": "$aCommunity power.",
+      "name": " Community power.",
+      "types": [
+        "/csv-recon"
+      ],
+      "score": 0.9333333333333333
+    },
+    "shareNewTopics": false,
+    "description": "Match item  Community power. ($aCommunity power.) for cells containing \"Community power\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "\" Iraq War, 2003-2011 | Protest movements.\"",
+    "judgment": "matched",
+    "match": {
+      "id": "$aIraq War, 2003-2011$xProtest movements.",
+      "name": " Iraq War, 2003-2011 | Protest movements.",
+      "types": [
+        "/csv-recon"
+      ],
+      "score": 0.975
+    },
+    "shareNewTopics": false,
+    "description": "Match item  Iraq War, 2003-2011 | Protest movements. ($aIraq War, 2003-2011$xProtest movements.) for cells containing \"\" Iraq War, 2003-2011 | Protest movements.\"\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "Ritual in art",
+    "judgment": "matched",
+    "match": {
+      "id": "$aRitual in art.",
+      "name": " Ritual in art.",
+      "types": [
+        "/csv-recon"
+      ],
+      "score": 0.9230769230769231
+    },
+    "shareNewTopics": false,
+    "description": "Match item  Ritual in art. ($aRitual in art.) for cells containing \"Ritual in art\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "Embodiment.",
+    "judgment": "matched",
+    "match": {
+      "id": "$aEmbodiment.",
+      "name": " Embodiment.",
+      "types": [
+        "/csv-recon"
+      ],
+      "score": 0.9523809523809524
+    },
+    "shareNewTopics": false,
+    "description": "Match item  Embodiment. ($aEmbodiment.) for cells containing \"Embodiment.\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "Politics and war",
+    "judgment": "matched",
+    "match": {
+      "id": "$aPolitics and war.",
+      "name": " Politics and war.",
+      "types": [
+        "/csv-recon"
+      ],
+      "score": 0.9375
+    },
+    "shareNewTopics": false,
+    "description": "Match item  Politics and war. ($aPolitics and war.) for cells containing \"Politics and war\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "\" Marginality, Social.\"",
+    "judgment": "matched",
+    "match": {
+      "id": "$aMarginality, Social.",
+      "name": " Marginality, Social.",
+      "types": [
+        "/csv-recon"
+      ],
+      "score": 0.95
+    },
+    "shareNewTopics": false,
+    "description": "Match item  Marginality, Social. ($aMarginality, Social.) for cells containing \"\" Marginality, Social.\"\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "United States | Military relations | Puerto Rico | Drama",
+    "judgment": "matched",
+    "match": {
+      "id": "$aUnited States$xMilitary relations$zPuerto Rico$vDrama.",
+      "name": " United States | Military relations | Puerto Rico | Drama.",
+      "types": [
+        "/csv-recon"
+      ],
+      "score": 0.9777777777777777
+    },
+    "shareNewTopics": false,
+    "description": "Match item  United States | Military relations | Puerto Rico | Drama. ($aUnited States$xMilitary relations$zPuerto Rico$vDrama.) for cells containing \"United States | Military relations | Puerto Rico | Drama\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "Violence | Psychological aspects",
+    "judgment": "matched",
+    "match": {
+      "id": "$aViolence$xPsychological aspects.",
+      "name": " Violence | Psychological aspects.",
+      "types": [
+        "/csv-recon"
+      ],
+      "score": 0.967741935483871
+    },
+    "shareNewTopics": false,
+    "description": "Match item  Violence | Psychological aspects. ($aViolence$xPsychological aspects.) for cells containing \"Violence | Psychological aspects\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "United States | Race relations",
+    "judgment": "matched",
+    "match": {
+      "id": "$aUnited States$xRace relations",
+      "name": " United States | Race relations",
+      "types": [
+        "/csv-recon"
+      ],
+      "score": 0.9811320754716981
+    },
+    "shareNewTopics": false,
+    "description": "Match item  United States | Race relations ($aUnited States$xRace relations) for cells containing \"United States | Race relations\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "Social violence",
+    "judgment": "matched",
+    "match": {
+      "id": "$aSocial violence",
+      "name": " Social violence",
+      "types": [
+        "/csv-recon"
+      ],
+      "score": 0.9655172413793103
+    },
+    "shareNewTopics": false,
+    "description": "Match item  Social violence ($aSocial violence) for cells containing \"Social violence\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "Community organization.",
+    "judgment": "matched",
+    "match": {
+      "id": "$aCommunity organization.",
+      "name": " Community organization.",
+      "types": [
+        "/csv-recon"
+      ],
+      "score": 0.9767441860465116
+    },
+    "shareNewTopics": false,
+    "description": "Match item  Community organization. ($aCommunity organization.) for cells containing \"Community organization.\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "\"Mission District (San Francisco, Calif.)\"",
+    "judgment": "matched",
+    "match": {
+      "id": "",
+      "name": "Mission District (San Francisco, Calif.)",
+      "types": [
+        "/csv-recon"
+      ],
+      "score": 0.9722222222222222
+    },
+    "shareNewTopics": false,
+    "description": "Match item Mission District (San Francisco, Calif.) () for cells containing \"\"Mission District (San Francisco, Calif.)\"\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "Identity politics | Cuba",
+    "judgment": "matched",
+    "match": {
+      "id": "$aIdentity politics$zCuba.",
+      "name": " Identity politics | Cuba.",
+      "types": [
+        "/csv-recon"
+      ],
+      "score": 0.9545454545454545
+    },
+    "shareNewTopics": false,
+    "description": "Match item  Identity politics | Cuba. ($aIdentity politics$zCuba.) for cells containing \"Identity politics | Cuba\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "Hip-hop culture",
+    "judgment": "matched",
+    "match": {
+      "id": "$aHip-hop culture",
+      "name": " Hip-hop culture",
+      "types": [
+        "/csv-recon"
+      ],
+      "score": 0.9655172413793103
+    },
+    "shareNewTopics": false,
+    "description": "Match item  Hip-hop culture ($aHip-hop culture) for cells containing \"Hip-hop culture\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "\" War on Terrorism, 2001-\"",
+    "judgment": "matched",
+    "match": {
+      "id": "$aWar on Terrorism, 2001-",
+      "name": " War on Terrorism, 2001-",
+      "types": [
+        "/csv-recon"
+      ],
+      "score": 0.9583333333333333
+    },
+    "shareNewTopics": false,
+    "description": "Match item  War on Terrorism, 2001- ($aWar on Terrorism, 2001-) for cells containing \"\" War on Terrorism, 2001-\"\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "Solidarity--Political aspects",
+    "judgment": "matched",
+    "match": {
+      "id": "",
+      "name": "Solidarity--Political aspects.",
+      "types": [
+        "/csv-recon"
+      ],
+      "score": 0.9803921568627451
+    },
+    "shareNewTopics": false,
+    "description": "Match item Solidarity--Political aspects. () for cells containing \"Solidarity--Political aspects\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "People with disabilities and the performing arts",
+    "judgment": "matched",
+    "match": {
+      "id": "$aPeople with disabilities and the performing arts.",
+      "name": " People with disabilities and the performing arts.",
+      "types": [
+        "/csv-recon"
+      ],
+      "score": 0.9882352941176471
+    },
+    "shareNewTopics": false,
+    "description": "Match item  People with disabilities and the performing arts. ($aPeople with disabilities and the performing arts.) for cells containing \"People with disabilities and the performing arts\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "Experimental dance",
+    "judgment": "matched",
+    "match": {
+      "id": "$aExperimental dance.",
+      "name": " Experimental dance.",
+      "types": [
+        "/csv-recon"
+      ],
+      "score": 0.9444444444444444
+    },
+    "shareNewTopics": false,
+    "description": "Match item  Experimental dance. ($aExperimental dance.) for cells containing \"Experimental dance\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "Performing arts",
+    "judgment": "matched",
+    "match": {
+      "id": "$aPerforming arts.",
+      "name": " Performing arts.",
+      "types": [
+        "/csv-recon"
+      ],
+      "score": 0.9333333333333333
+    },
+    "shareNewTopics": false,
+    "description": "Match item  Performing arts. ($aPerforming arts.) for cells containing \"Performing arts\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "Modern dance",
+    "judgment": "matched",
+    "match": {
+      "id": "$aModern dance.",
+      "name": " Modern dance.",
+      "types": [
+        "/csv-recon"
+      ],
+      "score": 0.9166666666666667
+    },
+    "shareNewTopics": false,
+    "description": "Match item  Modern dance. ($aModern dance.) for cells containing \"Modern dance\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "Prejudices",
+    "judgment": "matched",
+    "match": {
+      "id": "$aPrejudices.",
+      "name": " Prejudices.",
+      "types": [
+        "/csv-recon"
+      ],
+      "score": 0.9
+    },
+    "shareNewTopics": false,
+    "description": "Match item  Prejudices. ($aPrejudices.) for cells containing \"Prejudices\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "Corporealities",
+    "judgment": "matched",
+    "match": {
+      "id": "$aCorporealities.",
+      "name": " Corporealities.",
+      "types": [
+        "/csv-recon"
+      ],
+      "score": 0.9230769230769231
+    },
+    "shareNewTopics": false,
+    "description": "Match item  Corporealities. ($aCorporealities.) for cells containing \"Corporealities\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "Feminism and dance.",
+    "judgment": "matched",
+    "match": {
+      "id": "$aFeminism and dance.",
+      "name": " Feminism and dance.",
+      "types": [
+        "/csv-recon"
+      ],
+      "score": 0.9714285714285714
+    },
+    "shareNewTopics": false,
+    "description": "Match item  Feminism and dance. ($aFeminism and dance.) for cells containing \"Feminism and dance.\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "Prison-industrial complex | United States",
+    "judgment": "matched",
+    "match": {
+      "id": "$aPrison-industrial complex$zUnited States.",
+      "name": " Prison-industrial complex | United States.",
+      "types": [
+        "/csv-recon"
+      ],
+      "score": 0.9736842105263158
+    },
+    "shareNewTopics": false,
+    "description": "Match item  Prison-industrial complex | United States. ($aPrison-industrial complex$zUnited States.) for cells containing \"Prison-industrial complex | United States\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "African American men | Social conditions",
+    "judgment": "matched",
+    "match": {
+      "id": "$aAfrican American men$xSocial conditions.",
+      "name": " African American men | Social conditions.",
+      "types": [
+        "/csv-recon"
+      ],
+      "score": 0.9841269841269841
+    },
+    "shareNewTopics": false,
+    "description": "Match item  African American men | Social conditions. ($aAfrican American men$xSocial conditions.) for cells containing \"African American men | Social conditions\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "Imprisonment | Political aspects",
+    "judgment": "matched",
+    "match": {
+      "id": "$aImprisonment$xPolitical aspects.",
+      "name": " Imprisonment | Political aspects.",
+      "types": [
+        "/csv-recon"
+      ],
+      "score": 0.96875
+    },
+    "shareNewTopics": false,
+    "description": "Match item  Imprisonment | Political aspects. ($aImprisonment$xPolitical aspects.) for cells containing \"Imprisonment | Political aspects\" in column Subjects_653"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_653",
+    "similarValue": "Body––Objectification",
+    "judgment": "matched",
+    "match": {
+      "id": "$aBody––Objectification",
+      "name": " Body––Objectification",
+      "types": [
+        "/csv-recon"
+      ],
+      "score": 0.9743589743589745
+    },
+    "shareNewTopics": false,
+    "description": "Match item  Body––Objectification ($aBody––Objectification) for cells containing \"Body––Objectification\" in column Subjects_653"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "record-based"
+    },
+    "baseColumnName": "Subjects_653",
+    "expression": "grel:cell.recon.match.id",
+    "onError": "set-to-blank",
+    "newColumnName": "Subjects_Subfields",
+    "columnInsertIndex": 31,
+    "description": "Create column Subjects_Subfields at index 31 based on column Subjects_653 using expression grel:cell.recon.match.id"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "record-based"
+    },
+    "baseColumnName": "Subjects_653",
+    "expression": "grel:cell.recon.match.name",
+    "onError": "set-to-blank",
+    "newColumnName": "Subject_Name",
+    "columnInsertIndex": 31,
+    "description": "Create column Subject_Name at index 31 based on column Subjects_653 using expression grel:cell.recon.match.name"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653",
+          "expression": "value",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [],
+          "selectBlank": false,
+          "selectError": false
+        },
+        {
+          "type": "text",
+          "name": "Subjects_653",
+          "columnName": "Subjects_653",
+          "query": null,
+          "mode": "text",
+          "caseSensitive": false,
+          "invert": false
+        },
+        {
+          "type": "list",
+          "name": "Pattern",
+          "expression": "value",
+          "columnName": "Pattern",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [],
+          "selectBlank": false,
+          "selectError": false
+        },
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [],
+          "selectBlank": false,
+          "selectError": false
+        },
+        {
+          "type": "list",
+          "name": "Subjects_Subfields",
+          "expression": "value",
+          "columnName": "Subjects_Subfields",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [],
+          "selectBlank": false,
+          "selectError": false
+        },
+        {
+          "type": "list",
+          "name": "MARC field",
+          "expression": "value",
+          "columnName": "MARC field",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "record-based"
+    },
+    "baseColumnName": "Subject_Name",
+    "expression": "grel:forEach(cross(cell,\"Subjects Grid view April2020 csv\",\"Subject\"),v,v.cells[\"MARC field\"].value)[0]",
+    "onError": "set-to-blank",
+    "newColumnName": "MARC field",
+    "columnInsertIndex": 32,
+    "description": "Create column MARC field at index 32 based on column Subject_Name using expression grel:forEach(cross(cell,\"Subjects Grid view April2020 csv\",\"Subject\"),v,v.cells[\"MARC field\"].value)[0]"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subjects_653",
+          "expression": "value",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [],
+          "selectBlank": false,
+          "selectError": false
+        },
+        {
+          "type": "text",
+          "name": "Subjects_653",
+          "columnName": "Subjects_653",
+          "query": null,
+          "mode": "text",
+          "caseSensitive": false,
+          "invert": false
+        },
+        {
+          "type": "list",
+          "name": "Pattern",
+          "expression": "value",
+          "columnName": "Pattern",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [],
+          "selectBlank": false,
+          "selectError": false
+        },
+        {
+          "type": "list",
+          "name": "Subjects_653: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "Subjects_653",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [],
+          "selectBlank": false,
+          "selectError": false
+        },
+        {
+          "type": "list",
+          "name": "Subjects_Subfields",
+          "expression": "value",
+          "columnName": "Subjects_Subfields",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [],
+          "selectBlank": false,
+          "selectError": false
+        },
+        {
+          "type": "list",
+          "name": "MARC field",
+          "expression": "value",
+          "columnName": "MARC field",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "record-based"
+    },
+    "baseColumnName": "Subject_Name",
+    "expression": "grel:forEach(cross(cell,\"Subjects Grid view April2020 csv\",\"Subject\"),v,v.cells[\"Subject source\"].value)[0]",
+    "onError": "set-to-blank",
+    "newColumnName": "Subject source",
+    "columnInsertIndex": 33,
+    "description": "Create column Subject source at index 33 based on column Subject_Name using expression grel:forEach(cross(cell,\"Subjects Grid view April2020 csv\",\"Subject\"),v,v.cells[\"Subject source\"].value)[0]"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "MARC field",
+          "expression": "value",
+          "columnName": "MARC field",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "650",
+                "l": "650"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        },
+        {
+          "type": "list",
+          "name": "Subject source",
+          "expression": "value",
+          "columnName": "Subject source",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Library of Congress Subject Headings",
+                "l": "Library of Congress Subject Headings"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Subjects_650",
+    "expression": "grel:cells[\"Subjects_Subfields\"].value",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Subjects_650 using expression grel:cells[\"Subjects_Subfields\"].value"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "MARC field",
+          "expression": "value",
+          "columnName": "MARC field",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "651",
+                "l": "651"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        },
+        {
+          "type": "list",
+          "name": "Subject source",
+          "expression": "value",
+          "columnName": "Subject source",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Library of Congress Subject Headings",
+                "l": "Library of Congress Subject Headings"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "baseColumnName": "Subjects_Subfields",
+    "expression": "grel:value",
+    "onError": "set-to-blank",
+    "newColumnName": "Subjects_651",
+    "columnInsertIndex": 35,
+    "description": "Create column Subjects_651 at index 35 based on column Subjects_Subfields using expression grel:value"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Subjects_653",
+    "newColumnName": "Subjects_Recon",
+    "description": "Rename column Subjects_653 to Subjects_Recon"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Subject source",
+          "expression": "value",
+          "columnName": "Subject source",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "HIDVL",
+                "l": "HIDVL"
+              }
+            }
+          ],
+          "selectBlank": true,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "baseColumnName": "Subjects_Recon",
+    "expression": "grel:value",
+    "onError": "set-to-blank",
+    "newColumnName": "Subjects_653",
+    "columnInsertIndex": 31,
+    "description": "Create column Subjects_653 at index 31 based on column Subjects_Recon using expression grel:value"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Subject_Name",
+    "description": "Remove column Subject_Name"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Subjects_Subfields",
+    "description": "Remove column Subjects_Subfields"
+  },
+  {
+    "op": "core/column-move",
+    "columnName": "Subjects_651",
+    "index": 33,
+    "description": "Move column Subjects_651 to position 33"
+  },
+  {
+    "op": "core/column-move",
+    "columnName": "Subjects_651",
+    "index": 32,
+    "description": "Move column Subjects_651 to position 32"
+  },
+  {
+    "op": "core/column-move",
+    "columnName": "Subjects_651",
+    "index": 31,
+    "description": "Move column Subjects_651 to position 31"
+  },
+  {
+    "op": "core/column-move",
+    "columnName": "Subjects_Recon",
+    "index": 29,
+    "description": "Move column Subjects_Recon to position 29"
+  },
+  {
+    "op": "core/multivalued-cell-join",
+    "columnName": "Subjects_650",
+    "keyColumnName": "NOID",
+    "separator": "|",
+    "description": "Join multi-valued cells in column Subjects_650"
+  },
+  {
+    "op": "core/multivalued-cell-join",
+    "columnName": "Subjects_651",
+    "keyColumnName": "NOID",
+    "separator": "|",
+    "description": "Join multi-valued cells in column Subjects_651"
+  },
+  {
+    "op": "core/multivalued-cell-join",
+    "columnName": "Subjects_653",
+    "keyColumnName": "NOID",
+    "separator": "|",
+    "description": "Join multi-valued cells in column Subjects_653"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "MARC field",
+    "description": "Remove column MARC field"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Subject source",
+    "description": "Remove column Subject source"
+  },
+  {
+    "op": "core/multivalued-cell-join",
+    "columnName": "Subjects_Recon",
+    "keyColumnName": "NOID",
+    "separator": "|",
+    "description": "Join multi-valued cells in column Subjects_Recon"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Subjects_Recon",
+    "description": "Remove column Subjects_Recon"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "Subjects_651",
+          "columnName": "Subjects_651",
+          "query": "",
+          "mode": "text",
+          "caseSensitive": false,
+          "invert": false
+        },
+        {
+          "type": "text",
+          "name": "Subjects_653",
+          "columnName": "Subjects_653",
+          "query": "",
+          "mode": "text",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "record-based"
+    },
+    "columnName": "Main_Production_Credits",
+    "expression": "grel:value.replace(\"\\n\",\" \")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Main_Production_Credits using expression grel:value.replace(\"\\n\",\" \")"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "Subjects_651",
+          "columnName": "Subjects_651",
+          "query": "",
+          "mode": "text",
+          "caseSensitive": false,
+          "invert": false
+        },
+        {
+          "type": "text",
+          "name": "Subjects_653",
+          "columnName": "Subjects_653",
+          "query": "",
+          "mode": "text",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "record-based"
+    },
+    "columnName": "Main_Production_Credits",
+    "expression": "value.replace(/\\s+/,' ')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Main_Production_Credits using expression value.replace(/\\s+/,' ')"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Main_Production_Credits 1",
+    "description": "Remove column Main_Production_Credits 1"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Main_Production_Credits 2",
+    "description": "Remove column Main_Production_Credits 2"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Main_Production_Credits 3",
+    "description": "Remove column Main_Production_Credits 3"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Main_Production_Credits 4",
+    "description": "Remove column Main_Production_Credits 4"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Main_Production_Credits 5",
+    "description": "Remove column Main_Production_Credits 5"
+  },
+  {
+    "op": "core/column-move",
+    "columnName": "HI",
+    "index": 0,
+    "description": "Move column HI to position 0"
+  },
+  {
+    "op": "core/column-move",
+    "columnName": "HI",
+    "index": 1,
+    "description": "Move column HI to position 1"
+  },
+  {
+    "op": "core/column-move",
+    "columnName": "Rights_Holder",
+    "index": 0,
+    "description": "Move column Rights_Holder to position 0"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "Rights_Holder",
+    "expression": "grel:forEach(cross(cell,\"Copyright Holders Grid view 2 csv\",\"﻿Name\"),v,v.cells[\"Contact Designation\"].value)[0]",
+    "onError": "set-to-blank",
+    "newColumnName": "Contact Designation",
+    "columnInsertIndex": 1,
+    "description": "Create column Contact Designation at index 1 based on column Rights_Holder using expression grel:forEach(cross(cell,\"Copyright Holders Grid view 2 csv\",\"﻿Name\"),v,v.cells[\"Contact Designation\"].value)[0]"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "Rights_Holder",
+    "expression": "grel:forEach(cross(cell,\"Copyright Holders Grid view 2 csv\",\"﻿Name\"),v,v.cells[\"Address\"].value)[0]",
+    "onError": "set-to-blank",
+    "newColumnName": "Address",
+    "columnInsertIndex": 2,
+    "description": "Create column Address at index 2 based on column Rights_Holder using expression grel:forEach(cross(cell,\"Copyright Holders Grid view 2 csv\",\"﻿Name\"),v,v.cells[\"Address\"].value)[0]"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "Rights_Holder",
+    "expression": "grel:forEach(cross(cell,\"Copyright Holders Grid view 2 csv\",\"﻿Name\"),v,v.cells[\"Phone (BUSINESS)\"].value)[0]",
+    "onError": "set-to-blank",
+    "newColumnName": "Phone (BUSINESS)",
+    "columnInsertIndex": 3,
+    "description": "Create column Phone (BUSINESS) at index 3 based on column Rights_Holder using expression grel:forEach(cross(cell,\"Copyright Holders Grid view 2 csv\",\"﻿Name\"),v,v.cells[\"Phone (BUSINESS)\"].value)[0]"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "Rights_Holder",
+    "expression": "grel:forEach(cross(cell,\"Copyright Holders Grid view 2 csv\",\"﻿Name\"),v,v.cells[\"Phone (FAX)\"].value)[0]",
+    "onError": "set-to-blank",
+    "newColumnName": "Phone (FAX)",
+    "columnInsertIndex": 4,
+    "description": "Create column Phone (FAX) at index 4 based on column Rights_Holder using expression grel:forEach(cross(cell,\"Copyright Holders Grid view 2 csv\",\"﻿Name\"),v,v.cells[\"Phone (FAX)\"].value)[0]"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "Rights_Holder",
+    "expression": "grel:forEach(cross(cell,\"Copyright Holders Grid view 2 csv\",\"﻿Name\"),v,v.cells[\"Phone (MOBILE)\"].value)[0]",
+    "onError": "set-to-blank",
+    "newColumnName": "Phone (MOBILE)",
+    "columnInsertIndex": 5,
+    "description": "Create column Phone (MOBILE) at index 5 based on column Rights_Holder using expression grel:forEach(cross(cell,\"Copyright Holders Grid view 2 csv\",\"﻿Name\"),v,v.cells[\"Phone (MOBILE)\"].value)[0]"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "Rights_Holder",
+    "expression": "grel:forEach(cross(cell,\"Copyright Holders Grid view 2 csv\",\"﻿Name\"),v,v.cells[\"Email 1\"].value)[0]",
+    "onError": "set-to-blank",
+    "newColumnName": "Email 1",
+    "columnInsertIndex": 6,
+    "description": "Create column Email 1 at index 6 based on column Rights_Holder using expression grel:forEach(cross(cell,\"Copyright Holders Grid view 2 csv\",\"﻿Name\"),v,v.cells[\"Email 1\"].value)[0]"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "Rights_Holder",
+    "expression": "grel:forEach(cross(cell,\"Copyright Holders Grid view 2 csv\",\"﻿Name\"),v,v.cells[\"Email 2\"].value)[0]",
+    "onError": "set-to-blank",
+    "newColumnName": "Email 2",
+    "columnInsertIndex": 7,
+    "description": "Create column Email 2 at index 7 based on column Rights_Holder using expression grel:forEach(cross(cell,\"Copyright Holders Grid view 2 csv\",\"﻿Name\"),v,v.cells[\"Email 2\"].value)[0]"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "Rights_Holder",
+    "expression": "grel:forEach(cross(cell,\"Copyright Holders Grid view 2 csv\",\"﻿Name\"),v,v.cells[\"Email 3\"].value)[0]",
+    "onError": "set-to-blank",
+    "newColumnName": "Email 3",
+    "columnInsertIndex": 8,
+    "description": "Create column Email 3 at index 8 based on column Rights_Holder using expression grel:forEach(cross(cell,\"Copyright Holders Grid view 2 csv\",\"﻿Name\"),v,v.cells[\"Email 3\"].value)[0]"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "Rights_Holder",
+    "expression": "grel:forEach(cross(cell,\"Copyright Holders Grid view 2 csv\",\"﻿Name\"),v,v.cells[\"Website\"].value)[0]",
+    "onError": "set-to-blank",
+    "newColumnName": "Website",
+    "columnInsertIndex": 9,
+    "description": "Create column Website at index 9 based on column Rights_Holder using expression grel:forEach(cross(cell,\"Copyright Holders Grid view 2 csv\",\"﻿Name\"),v,v.cells[\"Website\"].value)[0]"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "Rights_Holder",
+    "expression": "grel:if(isNotNull(cells[\"Contact Designation\"].value), cells[\"Contact Designation\"].value,\"\") + if(isNotNull(cells[\"Address\"].value), \", \" +cells[\"Address\"].value, \"\") + if(isNotNull(cells[\"Phone (BUSINESS)\"].value), cells[\"Phone (BUSINESS)\"].value,\"\")+ if(isNotNull(cells[\"Phone (FAX)\"].value), cells[\"Phone (FAX)\"].value,\"\")+ if(isNotNull(cells[\"Phone (MOBILE)\"].value), cells[\"Phone (MOBILE)\"].value,\"\")+ if(isNotNull(cells[\"Email 1\"].value), \", \"+cells[\"Email 1\"].value,\"\")+ if(isNotNull(cells[\"Email 2\"].value), \", \"+cells[\"Email 2\"].value,\"\")+ if(isNotNull(cells[\"Website\"].value), \", \"+cells[\"Website\"].value,\"\")",
+    "onError": "set-to-blank",
+    "newColumnName": "Rights_Contact",
+    "columnInsertIndex": 1,
+    "description": "Create column Rights_Contact at index 1 based on column Rights_Holder using expression grel:if(isNotNull(cells[\"Contact Designation\"].value), cells[\"Contact Designation\"].value,\"\") + if(isNotNull(cells[\"Address\"].value), \", \" +cells[\"Address\"].value, \"\") + if(isNotNull(cells[\"Phone (BUSINESS)\"].value), cells[\"Phone (BUSINESS)\"].value,\"\")+ if(isNotNull(cells[\"Phone (FAX)\"].value), cells[\"Phone (FAX)\"].value,\"\")+ if(isNotNull(cells[\"Phone (MOBILE)\"].value), cells[\"Phone (MOBILE)\"].value,\"\")+ if(isNotNull(cells[\"Email 1\"].value), \", \"+cells[\"Email 1\"].value,\"\")+ if(isNotNull(cells[\"Email 2\"].value), \", \"+cells[\"Email 2\"].value,\"\")+ if(isNotNull(cells[\"Website\"].value), \", \"+cells[\"Website\"].value,\"\")"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Rights_Contact",
+    "expression": "value.replace(/\\s+/,' ')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Rights_Contact using expression value.replace(/\\s+/,' ')"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Rights_Contact",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          ", 400 W 43rd St #215, New York, NY 10036, heidilatskydance@gmail.com, heidilatskydance.org"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "400 W 43rd St #215, New York, NY 10036, heidilatskydance@gmail.com, heidilatskydance.org"
+      }
+    ],
+    "description": "Mass edit cells in column Rights_Contact"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Artist_Bio",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "The mission of Heidi Latsky Dance (HLD) is to redefine beauty and virtuosity through performance and discourse, using performers with unique attributes to bring rigorous, passionate and provocative contemporary dance to diverse audiences. HLD is a New York-based modern dance company dedicated to redefining beauty and virtuosity through provocative and innovative performance and discourse, using performers with unique attributes to bring rigorous, passionate and provocative contemporary dance to diverse audiences. Since its inception in 2001, the company has received numerous awards, commissions and residencies. We premiered in 2001 with a Joyce Theater Residency and our first sold-out run of JUST WATCH!, presented by Danspace Project in NYC.  A variety of work followed, at venues around the world including American Dance Festival, Dublin Dance Festival, Central Park Summerstage, Kennedy Center, Scripps College Humanities Institute, DaDaFest Liverpool, Chicago Humanities Festival, CREA Conference Kathmandu, Crossing Borders Festival Dusseldorf, Jacob’s Pillow, The Whitney Museum of American Art, and Lincoln Center. http://heidilatskydance.org",
+          "The mission of Heidi Latsky Dance (HLD) is to redefine beauty and virtuosity through performance and discourse, using performers with unique attributes to bring rigorous, passionate and provocative contemporary dance to diverse audiences. HLD is a New York-based modern dance company dedicated to redefining beauty and virtuosity through provocative and innovative performance and discourse, using performers with unique attributes to bring rigorous, passionate and provocative contemporary dance to diverse audiences. Since its inception in 2001, the company has received numerous awards, commissions and residencies. We premiered in 2001 with a Joyce Theater Residency and our first sold-out run of JUST WATCH!, presented by Danspace Project in NYC.  A variety of work followed, at venues around the world including American Dance Festival, Dublin Dance Festival, Central Park Summerstage, Kennedy Center, Scripps College Humanities Institute, DaDaFest Liverpool, Chicago Humanities Festival, CREA Conference Kathmandu, Crossing Borders Festival Dusseldorf, Jacob’s Pillow, The Whitney Museum of American Art, and Lincoln Center. http://heidilatskydance.org/"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "The mission of Heidi Latsky Dance (HLD) is to redefine beauty and virtuosity through performance and discourse, using performers with unique attributes to bring rigorous, passionate and provocative contemporary dance to diverse audiences. HLD is a New York-based modern dance company dedicated to redefining beauty and virtuosity through provocative and innovative performance and discourse, using performers with unique attributes to bring rigorous, passionate and provocative contemporary dance to diverse audiences. Since its inception in 2001, the company has received numerous awards, commissions and residencies. We premiered in 2001 with a Joyce Theater Residency and our first sold-out run of JUST WATCH!, presented by Danspace Project in NYC.  A variety of work followed, at venues around the world including American Dance Festival, Dublin Dance Festival, Central Park Summerstage, Kennedy Center, Scripps College Humanities Institute, DaDaFest Liverpool, Chicago Humanities Festival, CREA Conference Kathmandu, Crossing Borders Festival Dusseldorf, Jacob’s Pillow, The Whitney Museum of American Art, and Lincoln Center. http://heidilatskydance.org"
+      }
+    ],
+    "description": "Mass edit cells in column Artist_Bio"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Artist_Bio",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "The mission of Heidi Latsky Dance (HLD) is to redefine beauty and virtuosity through performance and discourse, using performers with unique attributes to bring rigorous, passionate and provocative contemporary dance to diverse audiences. HLD is a New York-based modern dance company dedicated to redefining beauty and virtuosity through provocative and innovative performance and discourse, using performers with unique attributes to bring rigorous, passionate and provocative contemporary dance to diverse audiences. Since its inception in 2001, the company has received numerous awards, commissions and residencies. We premiered in 2001 with a Joyce Theater Residency and our first sold-out run of JUST WATCH!, presented by Danspace Project in NYC.  A variety of work followed, at venues around the world including American Dance Festival, Dublin Dance Festival, Central Park Summerstage, Kennedy Center, Scripps College Humanities Institute, DaDaFest Liverpool, Chicago Humanities Festival, CREA Conference Kathmandu, Crossing Borders Festival Dusseldorf, Jacob’s Pillow, The Whitney Museum of American Art, and Lincoln Center. http://heidilatskydance.org",
+          "The mission of Heidi Latsky Dance (HLD) is to redefine beauty and virtuosity through performance and discourse, using performers with unique attributes to bring rigorous, passionate and provocative contemporary dance to diverse audiences. HLD is a New York-based modern dance company dedicated to redefining beauty and virtuosity through provocative and innovative performance and discourse, using performers with unique attributes to bring rigorous, passionate and provocative contemporary dance to diverse audiences. Since its inception in 2001, the company has received numerous awards, commissions and residencies. We premiered in 2001 with a Joyce Theater Residency and our first sold-out run of JUST WATCH!, presented by Danspace Project in NYC.  A variety of work followed, at venues around the world including American Dance Festival, Dublin Dance Festival, Central Park Summerstage, Kennedy Center, Scripps College Humanities Institute, DaDaFest Liverpool, Chicago Humanities Festival, CREA Conference Kathmandu, Crossing Borders Festival Dusseldorf, Jacob’s Pillow, The Whitney Museum of American Art, and Lincoln Center. http://heidilatskydance.com/company/"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "The mission of Heidi Latsky Dance (HLD) is to redefine beauty and virtuosity through performance and discourse, using performers with unique attributes to bring rigorous, passionate and provocative contemporary dance to diverse audiences. HLD is a New York-based modern dance company dedicated to redefining beauty and virtuosity through provocative and innovative performance and discourse, using performers with unique attributes to bring rigorous, passionate and provocative contemporary dance to diverse audiences. Since its inception in 2001, the company has received numerous awards, commissions and residencies. We premiered in 2001 with a Joyce Theater Residency and our first sold-out run of JUST WATCH!, presented by Danspace Project in NYC.  A variety of work followed, at venues around the world including American Dance Festival, Dublin Dance Festival, Central Park Summerstage, Kennedy Center, Scripps College Humanities Institute, DaDaFest Liverpool, Chicago Humanities Festival, CREA Conference Kathmandu, Crossing Borders Festival Dusseldorf, Jacob’s Pillow, The Whitney Museum of American Art, and Lincoln Center. http://heidilatskydance.org"
+      }
+    ],
+    "description": "Mass edit cells in column Artist_Bio"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Contact Designation",
+    "description": "Remove column Contact Designation"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Address",
+    "description": "Remove column Address"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Phone (BUSINESS)",
+    "description": "Remove column Phone (BUSINESS)"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Phone (FAX)",
+    "description": "Remove column Phone (FAX)"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Phone (MOBILE)",
+    "description": "Remove column Phone (MOBILE)"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Email 1",
+    "description": "Remove column Email 1"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Email 2",
+    "description": "Remove column Email 2"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Email 3",
+    "description": "Remove column Email 3"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Website",
+    "description": "Remove column Website"
+  },
+  {
+    "op": "core/column-move",
+    "columnName": "NOID",
+    "index": 0,
+    "description": "Move column NOID to position 0"
+  },
+  {
+    "op": "core/column-move",
+    "columnName": "Rights_Holder",
+    "index": 2,
+    "description": "Move column Rights_Holder to position 2"
+  },
+  {
+    "op": "core/column-move",
+    "columnName": "Rights_Holder",
+    "index": 21,
+    "description": "Move column Rights_Holder to position 21"
+  },
+  {
+    "op": "core/column-move",
+    "columnName": "Rights_Contact",
+    "index": 21,
+    "description": "Move column Rights_Contact to position 21"
+  },
+  {
+    "op": "core/column-move",
+    "columnName": "Rights_Contact",
+    "index": 20,
+    "description": "Move column Rights_Contact to position 20"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Summary",
+    "expression": "grel:value.replace(\"\\n\",\" \")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Summary using expression grel:value.replace(\"\\n\",\" \")"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Participants",
+    "expression": "grel:value.replace(\"\\n\",\" \")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Participants using expression grel:value.replace(\"\\n\",\" \")"
+  }
+]

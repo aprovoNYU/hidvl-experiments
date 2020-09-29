@@ -1,0 +1,577 @@
+[
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [{
+          "type": "list",
+          "name": "Pattern",
+          "expression": "value",
+          "columnName": "Pattern",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "2.0",
+                "l": "2.0"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }],
+      "mode": "record-based"
+    },
+    "columnName": "Format",
+    "expression": "grel:value.replace(\"Media source original: \",\"\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Format using expression grel:value.replace(\"Media source original: \",\"\")"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [{
+          "type": "list",
+          "name": "Pattern",
+          "expression": "value",
+          "columnName": "Pattern",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "2.0",
+                "l": "2.0"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }],
+      "mode": "record-based"
+    },
+    "columnName": "Date_of_Production",
+    "expression": "grel:value.replace(/Jan,|Jan |Jan./,\"January \").replace(/Feb,|Feb |Feb./,\"February \").replace(/Mar,|Mar |Mar./,\"March \").replace(/Apr,|Apr |Apr./,\"April \").replace(/May,/,\"May \").replace(/Jun,|Jun |Jun./,\"June \").replace(/July,/,\"July \").replace(/Aug,|Aug |Aug./,\"August \").replace(/Sept,|Sept |Sept./,\"September \").replace(/Oct,|Oct |Oct./,\"October \").replace(/Nov,|Nov |Nov./,\"November \").replace(/Dec,|Dec |Dec./,\"December \")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Date_of_Production using expression grel:value.replace(/Jan,|Jan |Jan./,\"January \").replace(/Feb,|Feb |Feb./,\"February \").replace(/Mar,|Mar |Mar./,\"March \").replace(/Apr,|Apr |Apr./,\"April \").replace(/May,/,\"May \").replace(/Jun,|Jun |Jun./,\"June \").replace(/July,/,\"July \").replace(/Aug,|Aug |Aug./,\"August \").replace(/Sept,|Sept |Sept./,\"September \").replace(/Oct,|Oct |Oct./,\"October \").replace(/Nov,|Nov |Nov./,\"November \").replace(/Dec,|Dec |Dec./,\"December \")"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [{
+          "type": "list",
+          "name": "Pattern",
+          "expression": "value",
+          "columnName": "Pattern",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "2.0",
+                "l": "2.0"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }],
+      "mode": "record-based"
+    },
+    "columnName": "Date_of_Production",
+    "expression": "value.replace(/\\s+/,' ')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Date_of_Production using expression value.replace(/\\s+/,' ')"
+  },
+  {
+    "op": "core/column-split",
+    "engineConfig": {
+      "facets": [{
+          "type": "list",
+          "name": "Pattern",
+          "expression": "value",
+          "columnName": "Pattern",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "2.0",
+                "l": "2.0"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }],
+      "mode": "record-based"
+    },
+    "columnName": "Summary",
+    "guessCellType": false,
+    "removeOriginalColumn": false,
+    "mode": "separator",
+    "separator": "\\[\\w+\\]",
+    "regex": true,
+    "maxColumns": 0,
+    "description": "Split column Summary by separator"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Pattern",
+          "expression": "value",
+          "columnName": "Pattern",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "2.0",
+                "l": "2.0"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Summary",
+    "expression": "grel:cells[\"Summary 2\"].value",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Summary using expression grel:cells[\"Summary 2\"].value"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Summary 1",
+    "description": "Remove column Summary 1"
+  },
+    {
+    "op": "core/column-removal",
+    "columnName": "Summary 2",
+    "description": "Remove column Summary 2"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [{
+          "type": "list",
+          "name": "Pattern",
+          "expression": "value",
+          "columnName": "Pattern",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "2.0",
+                "l": "2.0"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        },
+        {
+          "type": "text",
+          "name": "Summary 3",
+          "columnName": "Summary 3",
+          "query": "",
+          "mode": "text",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "record-based"
+    },
+    "columnName": "Rights_Holder",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Rights_Holder using expression value.trim()"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Pattern",
+          "expression": "value",
+          "columnName": "Pattern",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "2.0",
+                "l": "2.0"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "record-based"
+    },
+    "columnName": "Summary 3",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "David Khang is a visual, performance, and biologicalartist whose practice is informed by education in psychology, theology,dentistry, and law. Khang selectively imbeds these disciplinary codes intohis work, to compose interdisciplinary languages that materialize invisual, textual, and spoken forms. In performing, Khang often embodiesthese languages to interrogate social constructions – of gender, race,and interspecies relations – that are present within dominant historicnarratives in contemporary culture. By strategically employing non-nativelanguages and code switching, Khang produces divergent, dissonant, andoften hyperbolic and humorous readings that re-imagine the poetic and thepolitical.",
+          "David Khang is a visual, performance, andbiological artist whose practice is informed by education in psychology,theology, dentistry, and law. Khang selectively imbeds these disciplinarycodes into his work, to compose interdisciplinary languages thatmaterialize in visual, textual, and spoken forms. In performing, Khangoften embodies these languages to interrogate social constructions – ofgender, race, and interspecies relations – that are present withindominant historic narratives in contemporary culture. By strategicallyemploying non-native languages and code switching, Khang producesdivergent, dissonant, and often hyperbolic and humorous readings thatre-imagine the poetic and the political.",
+          " David Khang is a visual, performance, andbiological artist whose practice is informed by education in psychology,theology, dentistry, and law. Khang selectively imbeds these disciplinarycodes into his work, to compose interdisciplinary languages thatmaterialize in visual, textual, and spoken forms. In performing, Khangoften embodies these languages to interrogate social constructions – ofgender, race, and interspecies relations – that are present withindominant historic narratives in contemporary culture. By strategicallyemploying non-native languages and code switching, Khang producesdivergent, dissonant, and often hyperbolic and humorous readings thatre-imagine the poetic and the political.",
+          " David Khang is a visual, performance,and biological artist whose practice is informed by education inpsychology, theology, dentistry, and law. Khang selectively imbeds thesedisciplinary codes into his work, to compose interdisciplinary languagesthat materialize in visual, textual, and spoken forms. In performing, Khangoften embodies these languages to interrogate social constructions – ofgender, race, and interspecies relations – that are present withindominant historic narratives in contemporary culture. By strategicallyemploying non-native languages and code switching, Khang producesdivergent, dissonant, and often hyperbolic and humorous readings thatre-imagine the poetic and the political.",
+          "David Khang is a visual, performance, and biological artist whose practice is informed by education in psychology, theology, dentistry, and law. Khang selectively imbeds these disciplinary codes into his work, to compose interdisciplinary languages that materialize in visual, textual, and spoken forms. In performing, Khang often embodies these languages to interrogate social constructions – of gender, race, and interspecies relations – that are present within dominant historic narratives in contemporary culture. By strategically employing non-native languages and code switching, Khang produces divergent, dissonant, and often hyperbolic and humorous readings that re-imagine the poetic and the political.",
+          "David Khang is a visual, performance, and biological artist whosepractice is informed by education in psychology, theology, dentistry, andlaw. Khang selectively imbeds these disciplinary codes into his work, tocompose interdisciplinary languages that materialize in visual, textual,and spoken forms. In performing, Khang often embodies these languages tointerrogate social constructions – of gender, race, and interspeciesrelations – that are present within dominant historic narratives incontemporary culture. By strategically employing non-native languages andcode switching, Khang produces divergent, dissonant, and often hyperbolicand humorous readings that re-imagine the poetic and the political.",
+          "David Khang is a visual, performance, and biological artistwhose practice is informed by education in psychology, theology, dentistry,and law. Khang selectively imbeds these disciplinary codes into his work,to compose interdisciplinary languages that materialize in visual, textual,and spoken forms. In performing, Khang often embodies these languages tointerrogate social constructions – of gender, race, and interspeciesrelations – that are present within dominant historic narratives incontemporary culture. By strategically employing non-native languages andcode switching, Khang produces divergent, dissonant, and often hyperbolicand humorous readings that re-imagine the poetic and the political.",
+          "David Khang is a visual,performance, and biological artist whose practice is informed by educationin psychology, theology, dentistry, and law. Khang selectively imbeds thesedisciplinary codes into his work, to compose interdisciplinary languagesthat materialize in visual, textual, and spoken forms. In performing, Khangoften embodies these languages to interrogate social constructions – ofgender, race, and interspecies relations – that are present withindominant historic narratives in contemporary culture. By strategicallyemploying non-native languages and code switching, Khang producesdivergent, dissonant, and often hyperbolic and humorous readings thatre-imagine the poetic and the political.",
+          "David Khangis a visual, performance, and biological artist whose practice is informedby education in psychology, theology, dentistry, and law. Khang selectivelyimbeds these disciplinary codes into his work, to compose interdisciplinarylanguages that materialize in visual, textual, and spoken forms. Inperforming, Khang often embodies these languages to interrogate socialconstructions – of gender, race, and interspecies relations – that arepresent within dominant historic narratives in contemporary culture. Bystrategically employing non-native languages and code switching, Khangproduces divergent, dissonant, and often hyperbolic and humorous readingsthat re-imagine the poetic and the political.",
+          "DavidKhang is a visual, performance, and biological artist whose practice isinformed by education in psychology, theology, dentistry, and law. Khangselectively imbeds these disciplinary codes into his work, to composeinterdisciplinary languages that materialize in visual, textual, and spokenforms. In performing, Khang often embodies these languages to interrogatesocial constructions – of gender, race, and interspecies relations –that are present within dominant historic narratives in contemporaryculture. By strategically employing non-native languages and codeswitching, Khang produces divergent, dissonant, and often hyperbolic andhumorous readings that re-imagine the poetic and the political."
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "David Khang is a visual, performance, and biological artist whose practice is informed by education in psychology, theology, dentistry, and law. Khang selectively imbeds these disciplinary codes into his work, to compose interdisciplinary languages that materialize in visual, textual, and spoken forms. In performing, Khang often embodies these languages to interrogate social constructions – of gender, race, and interspecies relations – that are present within dominant historic narratives in contemporary culture. By strategically employing non-native languages and code switching, Khang produces divergent, dissonant, and often hyperbolic and humorous readings that re-imagine the poetic and the political."
+      }
+    ],
+    "description": "Mass edit cells in column Summary 3"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Pattern",
+          "expression": "value",
+          "columnName": "Pattern",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "2.0",
+                "l": "2.0"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "record-based"
+    },
+    "columnName": "Artist_Bio",
+    "expression": "grel:cells[\"Summary 3\"].value",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Artist_Bio using expression grel:cells[\"Summary 3\"].value"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Summary 3",
+    "description": "Remove column Summary 3"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "record-based"
+    },
+    "columnName": "Date_of_Production",
+    "expression": "grel:value.chomp(\".\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Date_of_Production using expression grel:value.chomp(\".\")"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [        {
+          "type": "list",
+          "name": "Pattern",
+          "expression": "value",
+          "columnName": "Pattern",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [],
+          "selectBlank": false,
+          "selectError": false
+        }],
+      "mode": "record-based"
+    },
+    "columnName": "Language_Note",
+    "expression": "grel:forNonBlank(value,nonblank,\"In \" + cells[\"Language_List\"].value.replace(\",\",\", \") +\". \" + value,\"In \" + cells[\"Language_List\"].value.replace(\",\",\", \") + \".\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Language_Note using expression grel:forNonBlank(value,nonblank,\"In \" + cells[\"Language_List\"].value.replace(\",\",\", \") +\". \" + value,\"In \" + cells[\"Language_List\"].value.replace(\",\",\", \") + \".\")"
+  },
+{
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Pattern",
+          "expression": "value",
+          "columnName": "Pattern",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "2.0",
+                "l": "2.0"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "record-based"
+    },
+    "columnName": "Language_Note",
+    "expression": "grel:\"In \"+value+\".\"",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Language_Note using expression grel:\"In \"+value+\".\""
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "record-based"
+    },
+    "columnName": "Language_List",
+    "expression": "grel:value.replace(\"English\",\"eng\").replace(\"Spanish\",\"spa\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Language_List using expression grel:value.replace(\"English\",\"eng\").replace(\"Spanish\",\"spa\")"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "record-based"
+    },
+    "columnName": "Location_Venue",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Location_Venue using expression value.trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "record-based"
+    },
+    "columnName": "Date_of_Production",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Date_of_Production using expression value.trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "record-based"
+    },
+    "columnName": "Main_Production_Credits",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Main_Production_Credits using expression value.trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "Subjects_651",
+          "columnName": "Subjects_651",
+          "query": "",
+          "mode": "text",
+          "caseSensitive": false,
+          "invert": false
+        },
+        {
+          "type": "text",
+          "name": "Subjects_653",
+          "columnName": "Subjects_653",
+          "query": "",
+          "mode": "text",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "record-based"
+    },
+    "columnName": "Main_Production_Credits",
+    "expression": "grel:value.replace(\"\\n\",\" \")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Main_Production_Credits using expression grel:value.replace(\"\\n\",\" \")"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "Subjects_651",
+          "columnName": "Subjects_651",
+          "query": "",
+          "mode": "text",
+          "caseSensitive": false,
+          "invert": false
+        },
+        {
+          "type": "text",
+          "name": "Subjects_653",
+          "columnName": "Subjects_653",
+          "query": "",
+          "mode": "text",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "record-based"
+    },
+    "columnName": "Main_Production_Credits",
+    "expression": "value.replace(/\\s+/,' ')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Main_Production_Credits using expression value.replace(/\\s+/,' ')"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "record-based"
+    },
+    "columnName": "Worktypes",
+    "expression": "grel:value.replace(\",\",\"|\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Worktypes using expression grel:value.replace(\",\",\"|\")"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Alternate_Titles",
+    "expression": "grel:value.replace(\"(\",\"\").replace(\")\",\"\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Alternate_Titles using expression grel:value.replace(\"(\",\"\").replace(\")\",\"\")"
+  },
+{
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "Participants",
+          "columnName": "Participants",
+          "query": "",
+          "mode": "text",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Participants",
+    "expression": "grel:value.replace(\"; ;\",\";\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Participants using expression grel:value.replace(\"; ;\",\";\")"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "Participants",
+          "columnName": "Participants",
+          "query": "",
+          "mode": "text",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Participants",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "; David Khang, performer ; Cheto Castellano, performer ; Lissette Olivares, performer."
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "David Khang, performer ; Cheto Castellano, performer ; Lissette Olivares, performer."
+      }
+    ],
+    "description": "Mass edit cells in column Participants"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Series_Title",
+    "expression": "grel:value + \" collection\"",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Series_Title using expression grel:value + \" collection\""
+  }
+]
