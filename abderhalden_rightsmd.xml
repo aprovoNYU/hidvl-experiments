@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RightsDeclarationMD RIGHTSCATEGORY="COPYRIGHTED" xmlns="http://cosimo.stanford.edu/sdr/metsrights/"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://cosimo.stanford.edu/sdr/metsrights/ http://cosimo.stanford.edu/sdr/metsrights.xsd">
+  <RightsDeclaration>"Materials of the Hemispheric Institute Digital Video Library are protected by
+    copyright. They may not be copied, downloaded, or reproduced. The owner of this work has granted
+    NYU Libraries non-exclusive rights to include this material in the Hemispheric Institute Digital
+    Video Library and to make it accessible to the public for educational and research purposes.
+    Requests to purchase or for permission to use the work should be directed to the owner." </RightsDeclaration>
+  <RightsHolder>
+    <RightsHolderName>Mapa Teatro Laboratorio de Artistas</RightsHolderName>
+    <RightsHolderContact>
+      <RightsHolderContactDesignation>Rolf and Heidi Abderhalden</RightsHolderContactDesignation>
+      <RightsHolderContactAddress>Carrera 7 Nº 23-08, Bogotá, Colombia</RightsHolderContactAddress>
+      <RightsHolderContactPhone PHONETYPE="BUSINESS">+57-1-284-4899</RightsHolderContactPhone>
+      <RightsHolderContactPhone PHONETYPE="FAX">+57-1-599-6795</RightsHolderContactPhone>
+      <RightsHolderContactPhone PHONETYPE="MOBILE"/>
+      <RightsHolderContactEmail>info@mapateatro.org</RightsHolderContactEmail>
+    </RightsHolderContact>
+    <RightsHolderContact>
+      <RightsHolderContactDesignation>website</RightsHolderContactDesignation>
+      <RightsHolderContactAddress>http://www.mapateatro.org</RightsHolderContactAddress>
+    </RightsHolderContact>
+  </RightsHolder>
+</RightsDeclarationMD>

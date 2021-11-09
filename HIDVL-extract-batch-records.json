@@ -1,0 +1,143 @@
+[
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "﻿NOID",
+          "expression": "value",
+          "columnName": "﻿NOID",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [],
+          "selectBlank": false,
+          "selectError": false
+        },
+        {
+          "type": "list",
+          "name": "Publication Cycle",
+          "expression": "value",
+          "columnName": "Publication Cycle",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [],
+          "selectBlank": false,
+          "selectError": false
+        },
+        {
+          "type": "text",
+          "name": "HI_number",
+          "columnName": "HI_number",
+          "query": "",
+          "mode": "text",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "baseColumnName": "HI_number",
+    "expression": "grel:forEach(cross(cell,\"Inventory April 2020 Publication Cycle csv\",\"HI #\"),v,v.cells[\"﻿NOID\"].value).uniques().sort().join(', ')",
+    "onError": "set-to-blank",
+    "newColumnName": "﻿NOID",
+    "columnInsertIndex": 1,
+    "description": "Create column ﻿NOID at index 1 based on column HI_number using expression grel:forEach(cross(cell,\"Inventory April 2020 Publication Cycle csv\",\"HI #\"),v,v.cells[\"﻿NOID\"].value).uniques().sort().join(', ')"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "﻿NOID",
+          "expression": "value",
+          "columnName": "﻿NOID",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [],
+          "selectBlank": false,
+          "selectError": false
+        },
+        {
+          "type": "list",
+          "name": "Publication Cycle",
+          "expression": "value",
+          "columnName": "Publication Cycle",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [],
+          "selectBlank": false,
+          "selectError": false
+        },
+        {
+          "type": "text",
+          "name": "HI_number",
+          "columnName": "HI_number",
+          "query": "",
+          "mode": "text",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "baseColumnName": "HI_number",
+    "expression": "grel:forEach(cross(cell,\"Inventory April 2020 Publication Cycle csv\",\"HI #\"),v,v.cells[\"Cataloged Status\"].value).uniques().sort().join(', ')",
+    "onError": "set-to-blank",
+    "newColumnName": "Cataloged Status",
+    "columnInsertIndex": 2,
+    "description": "Create column Cataloged Status at index 2 based on column HI_number using expression grel:forEach(cross(cell,\"Inventory April 2020 Publication Cycle csv\",\"HI #\"),v,v.cells[\"Cataloged Status\"].value).uniques().sort().join(', ')"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "﻿NOID",
+          "expression": "value",
+          "columnName": "﻿NOID",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [],
+          "selectBlank": false,
+          "selectError": false
+        },
+        {
+          "type": "list",
+          "name": "Publication Cycle",
+          "expression": "value",
+          "columnName": "Publication Cycle",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [],
+          "selectBlank": false,
+          "selectError": false
+        },
+        {
+          "type": "text",
+          "name": "HI_number",
+          "columnName": "HI_number",
+          "query": "",
+          "mode": "text",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "baseColumnName": "HI_number",
+    "expression": "grel:forEach(cross(cell,\"Inventory April 2020 Publication Cycle csv\",\"HI #\"),v,v.cells[\"Publication Cycle\"].value).uniques().sort().join(', ')",
+    "onError": "set-to-blank",
+    "newColumnName": "Publication Cycle",
+    "columnInsertIndex": 3,
+    "description": "Create column Publication Cycle at index 3 based on column HI_number using expression grel:forEach(cross(cell,\"Inventory April 2020 Publication Cycle csv\",\"HI #\"),v,v.cells[\"Publication Cycle\"].value).uniques().sort().join(', ')"
+  }
+]

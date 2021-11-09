@@ -1,0 +1,60 @@
+[
+  {
+    "op": "core/column-move",
+    "columnName": "NOID",
+    "index": 0,
+    "description": "Move column NOID to position 0"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Pattern",
+          "expression": "value",
+          "columnName": "Pattern",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "record-based"
+    },
+    "columnName": "Language_Note",
+    "expression": "grel:forNonBlank(value,nonblank,\"In \" + cells[\"Language_List\"].value.replace(\",\",\", \") +\". \" + value,\"In \" + cells[\"Language_List\"].value.replace(\",\",\", \") + \".\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Language_Note using expression grel:forNonBlank(value,nonblank,\"In \" + cells[\"Language_List\"].value.replace(\",\",\", \") +\". \" + value,\"In \" + cells[\"Language_List\"].value.replace(\",\",\", \") + \".\")"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "record-based"
+    },
+    "columnName": "Language_List",
+    "expression": "grel:value.replace(\"English\",\"eng\").replace(\"Spanish\",\"spa\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Language_List using expression grel:value.replace(\"English\",\"eng\").replace(\"Spanish\",\"spa\")"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "record-based"
+    },
+    "columnName": "Series_Title",
+    "expression": "grel:value + \" collection\"",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Series_Title using expression grel:value + \" collection\""
+  }
+]
